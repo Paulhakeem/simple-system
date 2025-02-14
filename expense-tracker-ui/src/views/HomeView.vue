@@ -17,6 +17,7 @@
     <p class="text-gray-400">Betting</p>
     <div class="h-px bg-gray-600 my-4 max-w-lg m-auto"></div>
     <p class="text-gray-400">Agriculture</p>
+    <font-awesome-icon :icon="['fak', 'my-icon']" />
     <div class="h-px bg-gray-600 my-4 max-w-lg m-auto"></div>
  </div>
 </div>
