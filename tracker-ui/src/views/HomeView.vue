@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="bg-[#222327] w-full my-14 p-8 rounded-tl-4xl rounded-tr-4xl"
+    class="bg-[#222327] my-14 p-8 rounded-tl-4xl rounded-tr-4xl"
   >
     <div class="max-w-lg m-auto justify-center text-left">
      <div class="flex items-center justify-between">
