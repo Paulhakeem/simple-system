@@ -2,12 +2,9 @@
 
 body{
   background-color: #323338;
-  text-align: center;
 }
-
-
 @media (min-width: 1024px) {
   body {
-    text-align: center;
+    place-items: center;
   }
 }
