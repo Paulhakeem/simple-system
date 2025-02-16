@@ -21,6 +21,7 @@
 
     <div class="block w-full overflow-x-auto">
       <table class="items-center w-full border-collapse">
+        <!-- TABLE HEAD -->
         <thead class="thead-light">
           <tr>
             <th
@@ -40,12 +41,14 @@
             </th>
           </tr>
         </thead>
+
+        <!-- TABLE BODY -->
         <tbody>
           <tr>
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
-              Facebook
+              Fresh Water
             </th>
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"

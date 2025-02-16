@@ -1,10 +1,42 @@
 <template>
   <div class="flex-grow p-6 overflow-auto bg-gray-800">
     <div class="grid grid-cols-3 gap-6">
-      <div class="h-24 col-span-1 bg-gray-700"></div>
-      <div class="h-24 col-span-1 bg-gray-700"></div>
-      <div class="h-24 col-span-1 bg-gray-700"></div>
+      <!-- TOTAL MONEY -->
+      <div class="h-auto col-span-1 bg-gray-700">
+        <div class="text-center my-4">
+          <h5>Total(Ksh)</h5>
+          <div class="py-2">
+            <h1 class="text-4xl font-bold text-green-400">100,000</h1>
+          </div>
+          <div class="flex gap-2 justify-center items-center">
+            <span class="text-sm">Balance:</span>
+            <h6 class="text-lg font-semibold">Ksh40,000</h6>
+          </div>
+        </div>
+      </div>
 
+      <!-- INCOME PART -->
+      <div class="h-auto col-span-1 bg-gray-700">
+        <div class="text-center my-4">
+          <h5>Income(Ksh)</h5>
+          <div class="py-2">
+            <h1 class="text-4xl font-bold text-green-400">100,000</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPENSES -->
+      <div class="h-auto col-span-1 bg-gray-700">
+        <div class="text-center my-4">
+          <h5>Epenses(Ksh)</h5>
+          <div class="py-2">
+            <h1 class="text-4xl font-bold text-red-400">-60,000</h1>
+          </div>
+            <h6 class="text-sm">Money used to pay bills</h6>
+        </div>
+      </div>
+
+      <!-- BUSINESS STATEMENTS -->
       <div class="h-auto col-span-2 bg-gray-700 py-1">
         <Statement />
       </div>
@@ -12,7 +44,7 @@
       <!-- insights -->
       <div class="h-auto col-span-1 bg-gray-700">
         <div class="text-center pt-2">
-            <h1 class="text-[#1796d5] text-lg font-medium">Insights</h1>
+          <h1 class="text-[#1796d5] text-lg font-medium">Insights</h1>
         </div>
         <div class="flex items-center my-4 mx-2">
           <span class="mr-2">60%</span>
