@@ -3,6 +3,11 @@
 body{
   background-color: #323338;
 }
+
+.group:focus .group-focus\:flex {
+  display: flex;
+}
+
 @media (min-width: 1024px) {
   /* body {
     place-items: center;

@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router';
+
+</script>
 
 <template>
   <div
@@ -16,10 +19,10 @@
             <font-awesome-icon :icon="['fas', 'car']" class="text-xl text-[#1796d5]"/>
           <p class="text-gray-300">Travel & Tours</p>
         </div>
-        <div class="bg-gray-600 my-4 max-w-lg m-auto p-4 flex gap-4 items-center cursor-pointer">
+        <RouterLink to="/darshboard1" class="bg-gray-600 my-4 max-w-lg m-auto p-4 flex gap-4 items-center cursor-pointer">
             <font-awesome-icon :icon="['fab', 'shopify']" class="text-xl text-[#1796d5]"/>
             <p class="text-gray-300">Shopping</p>
-        </div>
+        </RouterLink >
       
         <div class="bg-gray-600 my-4 max-w-lg m-auto p-4 flex gap-4 items-center cursor-pointer">
             <font-awesome-icon :icon="['fas', 'cow']" class="text-xl text-[#1796d5]"/>
