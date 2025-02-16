@@ -59,7 +59,7 @@
           class="flex items-center justify-between flex-shrink-0 h-16 px-8"
         >
           <h1 class="text-lg font-medium text-[#1796d5]">
-            Manage Your Activities
+            Manage Your Business
           </h1>
           <button class="relative ml-2 text-sm focus:outline-none group ">
             <div
@@ -74,32 +74,22 @@
               class="absolute right-0 flex-col items-start hidden w-40 mt-1 pb-1 bg-gray-800 border border-gray-800 shadow-lg group-focus:flex"
             >
               <a class="w-full px-4 py-2 text-left hover:bg-gray-900" href="#"
-                >Menu Item 1</a
+                >shop 1</a
               >
               <a class="w-full px-4 py-2 text-left hover:bg-gray-900" href="#"
-                >Menu Item 2</a
-              >
-              <a class="w-full px-4 py-2 text-left hover:bg-gray-900" href="#"
-                >Menu Item 3</a
+                >shop 2</a
               >
             </div>
           </button>
         </div>
 
-        <!-- darshboard -->
-        <div class="flex-grow p-6 overflow-auto bg-gray-800">
-          <div class="grid grid-cols-3 gap-6">
-            <div class="h-24 col-span-1 bg-gray-700"></div>
-            <div class="h-24 col-span-1 bg-gray-700"></div>
-            <div class="h-24 col-span-1 bg-gray-700"></div>
-            <div class="h-24 col-span-2 bg-gray-700"></div>
-            <div class="h-24 col-span-1 bg-gray-700"></div>
-          </div>
-        </div>
+        <!-- darshboard Info-->
+      <DarshbordInfo/>
       </div>
-      <!-- Component End  -->
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import DarshbordInfo from '@/components/DarshbordInfo.vue';
+</script>
