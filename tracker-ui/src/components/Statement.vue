@@ -22,20 +22,20 @@
     <div class="block w-full overflow-x-auto">
       <table class="items-center w-full border-collapse">
         <!-- TABLE HEAD -->
-        <thead class="thead-light">
+        <thead class="thead-light bg-gray-800">
           <tr>
             <th
-              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+              class="px-6 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
             >
               Sale
             </th>
             <th
-              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+              class="px-6 align-middle  py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
             >
               Amount(Ksh)
             </th>
             <th
-              class="text-center px-6 border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold min-w-140-px"
+              class="text-center px-6 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold min-w-140-px"
             >
               date
             </th>
@@ -48,10 +48,11 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
+            <font-awesome-icon :icon="['fas', 'arrow-up']" class="text-green-400"/>
               Fresh Water
             </th>
             <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-[#1796d5] font-bold"
             >
               1,480
             </td>

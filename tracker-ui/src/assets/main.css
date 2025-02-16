@@ -4,12 +4,11 @@ body{
   background-color: #323338;
 }
 
-.group:focus .group-focus\:flex {
-  display: flex;
-}
+/* @media screen and (max-width: 720px) {
+  #box{
+    grid-template-columns:  repeat(1, minmax(0, 1fr));
+  }
+} */
 
-@media (min-width: 1024px) {
-  /* body {
-    place-items: center;
-  } */
-}
+
+
