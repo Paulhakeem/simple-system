@@ -1,10 +1,34 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import HomePage from '@/components/HomePage.vue';
+import { ref } from 'vue';
+
+const header = ref("CONTROL YOUR EXPENSES");
 
 </script>
 
 <template>
-  <div
+  <main>
+    <HomePage :text="header" />
+    <div class="flex space-x-7 justify-center pt-6">
+      <RouterLink to="">
+        <button
+          class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
+        >
+          Get Started
+        </button>
+      </RouterLink>
+      <RouterLink to="">
+        <button
+          class="border-2 border-[#1796d5] rounded-lg px-3 py-2 w-26 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
+        >
+          Explore
+        </button>
+      </RouterLink>
+    </div>
+
+    <!-- BUTTONS -->
+    <div
     class="bg-[#222327] my-14 p-8 rounded-tl-4xl rounded-tr-4xl"
   >
     <div class="max-w-lg m-auto justify-center text-left">
@@ -31,4 +55,6 @@ import { RouterLink } from 'vue-router';
       </div>
     </div>
   </div>
+  </main>
+ 
 </template>
