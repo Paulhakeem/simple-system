@@ -34,7 +34,7 @@
           />
         </a>
         <a
-          class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
+          class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800 relative"
           href="#"
         >
           <font-awesome-icon
@@ -42,6 +42,7 @@
             class="text-xl text-[#1796d5]"
           />
         </a>
+        
         <a
           class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-auto rounded hover:bg-gray-800"
           href="#"
@@ -55,16 +56,12 @@
 
       <!-- HEADER -->
       <div class="flex flex-col flex-grow">
-        <div
-          class="flex items-center justify-between flex-shrink-0 h-16 px-8"
-        >
+        <div class="flex items-center justify-between flex-shrink-0 h-16 px-8">
           <h1 class="text-lg font-medium text-[#1796d5]">
             Manage Your Business
           </h1>
-          <button class="relative ml-2 text-sm focus:outline-none group ">
-            <div
-              class="flex items-center justify-between"
-            >
+          <button class="relative ml-2 text-sm focus:outline-none group">
+            <div class="flex items-center justify-between">
               <font-awesome-icon
                 :icon="['fas', 'caret-down']"
                 class="text-xl text-[#1796d5] cursor-pointer hover:text-gray-800"
@@ -84,12 +81,12 @@
         </div>
 
         <!-- darshboard Info-->
-      <DarshbordInfo/>
+        <DarshbordInfo />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import DarshbordInfo from '@/components/DarshbordInfo.vue';
+import DarshbordInfo from "@/components/DarshbordInfo.vue";
 </script>

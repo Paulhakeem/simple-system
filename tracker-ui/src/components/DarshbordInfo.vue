@@ -1,6 +1,6 @@
 <template>
   <div class="flex-grow p-6 overflow-auto bg-gray-800">
-    <div id="box" class="grid grid-cols-3 gap-6">
+    <div class="grid grid-cols-3 gap-6">
       <!-- TOTAL MONEY -->
       <div class="h-auto col-span-1 bg-gray-700">
         <div class="text-center my-4">
