@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 const logger = require('morgan')
 
-env.config({ path: "/.config.env" });
+env.config({ path: "./config.env" });
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cors({origin: "*"}))
 app.use(express.urlencoded({extended: false}))
 
 mongoose
-  .connect('mongodb+srv://admin:gPlXjgJBXSGc2COQ@cluster0.2m2gpna.mongodb.net/cinemax?retryWrites=true&w=majority&appName=Cluster0', {})
+  .connect(process.env.CONNECTION_STR, {})
   .then((result) => {
     console.log("Database connection successfully");
   })
