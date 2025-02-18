@@ -1,6 +1,6 @@
 <template>
     <div>
-hello
+hello john
     </div>
 </template>
 
