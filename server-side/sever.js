@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 const logger = require('morgan')
 
-env.config({ path: "./config.env" });
+env.config({ path: "./.env" });
 
 const app = express();
 
