@@ -82,6 +82,8 @@
 
         <!-- darshboard Info-->
         <DarshbordInfo />
+        
+        
       </div>
     </div>
   </div>
@@ -89,4 +91,5 @@
 
 <script setup>
 import DarshbordInfo from "@/components/DarshbordInfo.vue";
+
 </script>

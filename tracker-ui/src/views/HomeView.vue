@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import HomePage from '@/components/HomePage.vue';
+import formInputModal from "@/components/formInputModal.vue";
 import { ref } from 'vue';
 
 const header = ref("CONTROL YOUR EXPENSES");
@@ -54,6 +55,7 @@ const header = ref("CONTROL YOUR EXPENSES");
         </div>
       </div>
     </div>
+    <formInputModal/>
   </div>
   </main>
  
