@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 import HomePage from "@/components/HomePage.vue";
 import SignupModal from "@/components/singupModal.vue";
+import loginModal from "@/components/loginModal.vue";
 
 import { ref } from "vue";
 
@@ -11,27 +12,29 @@ const modalActive = ref(null);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
 };
+
+const loginActive = ref(null);
+const toggleLogin = () => {
+  loginActive.value = !loginActive.value;
+};
 </script>
 
 <template>
   <main>
     <HomePage :text="header" />
     <div class="flex space-x-7 justify-center pt-6">
-      <RouterLink to="">
-        <button
-         @click="toggleModal"
-          class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
-        >
+      <button
+        @click="toggleModal"
+        class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
+      >
         Signup
-        </button>
-      </RouterLink>
-      <RouterLink to="">
-        <button
-          class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
-        >
-         Signin
-        </button>
-      </RouterLink>
+      </button>
+      <button
+        @click="toggleLogin"
+        class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
+      >
+        Signin
+      </button>
     </div>
 
     <!-- BUTTONS -->
@@ -80,7 +83,7 @@ const toggleModal = () => {
       </div>
     </div>
 
-    <SignupModal :modalActive="modalActive" @close-modal="toggleModal">
-    </SignupModal>
+    <SignupModal :modalActive="modalActive" @close-modal="toggleModal" />
+    <loginModal :loginActive="loginActive" @close-login="toggleLogin"/>
   </main>
 </template>
