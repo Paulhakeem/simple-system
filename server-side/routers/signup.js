@@ -3,4 +3,7 @@ const createUser = require("../controller/createUser")
 
 const router = express.Router()
 
-router.route('/singup').post(createUser.createUser)
+router.route('/signup').post(createUser.createUser)
+
+
+module.exports = router

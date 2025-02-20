@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require('cors')
 const logger = require('morgan')
+const newUser = require('./routers/signup')
 
 env.config({ path: "./.env" });
 
@@ -22,6 +23,11 @@ mongoose
   .catch((err) => {
     console.log("Database connection field");
   });
+
+
+// ROUTERS
+app.use('/home', newUser)
+// END ROUTERS
 
 app.listen(8000, async () => {
   console.log("Server is running on port 8000..");

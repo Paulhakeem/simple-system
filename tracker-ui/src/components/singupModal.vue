@@ -37,6 +37,7 @@
 
                 <div class="w-full">
                   <input
+                    v-model="auth.name"
                     type="text"
                     class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 focus:outline-none"
                     placeholder="Name"
@@ -59,6 +60,7 @@
 
                 <div class="w-full">
                   <input
+                    v-model="auth.password"
                     type="password"
                     class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 focus:outline-none"
                     placeholder="Passoward"
@@ -66,7 +68,7 @@
                 </div>
               </div>
               <div class="my-2 mx-auto w-10/12 justify-end flex items-end">
-                <button
+                <button @click="auth.createAccount"
                   class="bg-gray-600 rounded-lg px-3 py-2 text-white cursor-pointer"
                 >
                   Signup
@@ -81,6 +83,8 @@
 </template>
 
 <script setup>
+import { authCounterStore } from "../../store/auth";
+
 defineEmits(["close-modal"]);
 defineProps({
   modalActive: {
@@ -88,6 +92,8 @@ defineProps({
     default: false,
   },
 });
+
+const auth = authCounterStore();
 </script>
 
 <style>
@@ -101,19 +107,19 @@ defineProps({
   opacity: 0;
 }
 .modal-inner-enter-active {
-    transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0.15s;
+  transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0.15s;
 }
 
 .modal-inner-leave-active {
-    transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
+  transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
 }
 
-.modal-inner-enter-from{
-    opacity: 0;
-    transform: scale(0.8);
+.modal-inner-enter-from {
+  opacity: 0;
+  transform: scale(0.8);
 }
 
 .modal-inner-leave-to {
-    transform: scale(0.8);
+  transform: scale(0.8);
 }
 </style>
