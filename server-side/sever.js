@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 const logger = require('morgan')
 const newUser = require('./routers/signup')
+const loginUser = require('./routers/login')
 
 env.config({ path: "./.env" });
 
@@ -26,7 +27,8 @@ mongoose
 
 
 // ROUTERS
-app.use('/home', newUser)
+app.use('/', newUser)
+app.use('/', loginUser)
 // END ROUTERS
 
 app.listen(8000, async () => {

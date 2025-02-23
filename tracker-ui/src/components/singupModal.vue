@@ -37,7 +37,7 @@
 
                 <div class="w-full">
                   <input
-                    v-model="auth.name"
+                    v-model="name"
                     type="text"
                     class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 focus:outline-none"
                     placeholder="Name"
@@ -60,7 +60,7 @@
 
                 <div class="w-full">
                   <input
-                    v-model="auth.password"
+                    v-model="password"
                     type="password"
                     class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 focus:outline-none"
                     placeholder="Passoward"
@@ -68,7 +68,8 @@
                 </div>
               </div>
               <div class="my-2 mx-auto w-10/12 justify-end flex items-end">
-                <button @click="auth.createAccount"
+                <button
+                  @click="signupUser"
                   class="bg-gray-600 rounded-lg px-3 py-2 text-white cursor-pointer"
                 >
                   Signup
@@ -84,6 +85,7 @@
 
 <script setup>
 import { authCounterStore } from "../../store/auth";
+import { ref } from "vue";
 
 defineEmits(["close-modal"]);
 defineProps({
@@ -94,6 +96,13 @@ defineProps({
 });
 
 const auth = authCounterStore();
+
+const name = ref("");
+const password = ref("");
+
+const signupUser = async()=> {
+  await auth.createAccount(name.value, password.value)
+}
 </script>
 
 <style>
