@@ -11,17 +11,28 @@ export const authCounterStore = defineStore("auth", () => {
         password,
       });
       if (user) {
-        console.log("User created", user);
+        router.push({
+          path: "/",
+        });
       }
-      router.push({
-        path: "/",
-      });
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  const singIn = async (name, password) => {
+    try {
+      const login = await axios.post("http://localhost:8000/login", {
+        name,
+        password,
+      });
+      if (login) {
+        router.push({
+          path: "/",
+        });
+      }
+    } catch (error) {}
+  };
 
-  
-  return { createAccount };
+  return { createAccount, singIn };
 });
