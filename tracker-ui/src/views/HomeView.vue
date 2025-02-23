@@ -41,7 +41,7 @@ const toggleLogin = () => {
     <div class="bg-[#222327] my-14 p-8 rounded-tl-4xl rounded-tr-4xl">
       <div class="max-w-lg m-auto justify-center text-left">
         <div class="flex items-center justify-between">
-          <h1 class="text-lg font-semibold text-[#1796d5]">Catergorise</h1>
+          <h1 class="text-lg font-semibold text-[#1796d5]">Add Category</h1>
           <font-awesome-icon
             :icon="['fas', 'square-plus']"
             class="text-2xl text-[#1796d5] cursor-pointer"
@@ -84,6 +84,6 @@ const toggleLogin = () => {
     </div>
 
     <SignupModal :modalActive="modalActive" @close-modal="toggleModal" />
-    <loginModal :loginActive="loginActive" @close-login="toggleLogin"/>
+    <loginModal :loginActive="loginActive" @close-login="toggleLogin" />
   </main>
 </template>
