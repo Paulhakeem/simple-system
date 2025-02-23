@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import { useRouter } from "vue-router";
+
 
 export const authCounterStore = defineStore("auth", () => {
-  const router = useRouter();
+
   const createAccount = async (name, password) => {
     try {
       const user = await axios.post("http://localhost:8000/signup", {
@@ -27,9 +27,7 @@ export const authCounterStore = defineStore("auth", () => {
         password,
       });
       if (login) {
-        router.push({
-          path: "/",
-        });
+        console.log("successfully");
       }
     } catch (error) {}
   };

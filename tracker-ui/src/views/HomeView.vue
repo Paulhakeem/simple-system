@@ -6,7 +6,7 @@ import loginModal from "@/components/loginModal.vue";
 
 import { ref } from "vue";
 
-const header = ref("CONTROL YOUR EXPENSES");
+const header = ref("manage your business today");
 
 const modalActive = ref(null);
 const toggleModal = () => {
@@ -21,67 +21,51 @@ const toggleLogin = () => {
 
 <template>
   <main>
-    <HomePage :text="header" />
+    <div class="relative z-20 flex items-center">
+      <div
+        class="container relative flex flex-col items-center justify-between px-6 py-8 mx-auto"
+      >
+        <div class="flex flex-col">
+          <HomePage :text="header" />
+          <h2
+            class="w-full max-w-lg py-8 mx-auto text-lg font-light text-center text-gray-300 dark:text-white"
+          >
+            Ultimately, the goal is to optimize spending, ensuring that
+            resources are allocated efficiently and effectively to maximize
+            financial stability and achieve desired financial outcomes.
+          </h2>
+          <div class="flex items-center justify-center mt-4 gap-12">
+            <button
+              @click="toggleModal"
+              class="px-4 py-2 w-36 mr-4 text-white uppercase bg-[#1796d5] hover:border-2 hover: border-[#1796d5] hover:bg-transparent text-md rounded-md"
+            >
+              Singup
+            </button>
+            <button
+              @click="toggleLogin"
+              class="px-4 py-2 w-36 text-gray-200 uppercase bg-transparent border-2 border-[#1796d5] dark:text-white hover:bg-[#1796d5] hover:border-none hover:text-white text-md rounded-md"
+            >
+              SingIn
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
     <div class="flex space-x-7 justify-center pt-6">
       <button
-        @click="toggleModal"
+        
         class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
       >
         Signup
       </button>
       <button
-        @click="toggleLogin"
+       
         class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
       >
         Signin
       </button>
-    </div>
-
-    <!-- BUTTONS -->
-    <div class="bg-[#222327] my-14 p-8 rounded-tl-4xl rounded-tr-4xl">
-      <div class="max-w-lg m-auto justify-center text-left">
-        <div class="flex items-center justify-between">
-          <h1 class="text-lg font-semibold text-[#1796d5]">Add Category</h1>
-          <font-awesome-icon
-            :icon="['fas', 'square-plus']"
-            class="text-2xl text-[#1796d5] cursor-pointer"
-          />
-        </div>
-
-        <!-- catergories -->
-        <div class="pt-2">
-          <div
-            class="bg-gray-600 my-4 max-w-lg m-auto p-4 flex gap-4 items-center cursor-pointer"
-          >
-            <font-awesome-icon
-              :icon="['fas', 'car']"
-              class="text-xl text-[#1796d5]"
-            />
-            <p class="text-gray-300">Travel & Tours</p>
-          </div>
-          <RouterLink
-            to="/darshboard1"
-            class="bg-gray-600 my-4 max-w-lg m-auto p-4 flex gap-4 items-center cursor-pointer"
-          >
-            <font-awesome-icon
-              :icon="['fab', 'shopify']"
-              class="text-xl text-[#1796d5]"
-            />
-            <p class="text-gray-300">Shopping</p>
-          </RouterLink>
-
-          <div
-            class="bg-gray-600 my-4 max-w-lg m-auto p-4 flex gap-4 items-center cursor-pointer"
-          >
-            <font-awesome-icon
-              :icon="['fas', 'cow']"
-              class="text-xl text-[#1796d5]"
-            />
-            <p class="text-gray-300">Agriculture</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </div> -->
 
     <SignupModal :modalActive="modalActive" @close-modal="toggleModal" />
     <loginModal :loginActive="loginActive" @close-login="toggleLogin" />

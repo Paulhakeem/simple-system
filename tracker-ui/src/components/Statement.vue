@@ -7,15 +7,53 @@
             Business Name
           </h3>
         </div>
-        <div
-          class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
-        >
-          <button
-            class="bg-[#1796d5] text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
+
+        <!-- adding statement -->
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <div class="text-right">
+            <button
+              @click="toggleInput"
+              class="bg-[#1796d5] text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
+            >
+              Add
+            </button>
+          </div>
+
+          <div
+            v-if="showInput"
+            :class="{ 'opacity-100': showInput, 'opacity-0': !showInput }"
+            @blur="hideInput"
+            class="absolute p-4 bg-gray-500 duration-300 transition-opacity w-64"
           >
-            Add
-          </button>
+            <label>Item Name</label>
+            <div class="relative space-y-4">
+              <input
+                ref="inputField"
+                type="text"
+                placeholder="Enter item name..."
+                class="border rounded p-2 focus:outline-none text-gray-300"
+              />
+              <label>Amount</label>
+              <input
+                ref="inputField"
+                type="text"
+                placeholder="Enter item amount..."
+                class="border rounded p-2 focus:outline-none text-gray-300"
+              />
+              <input
+                ref="inputField"
+                type="date"
+                class="border rounded p-2 focus:outline-none text-gray-300"
+              />
+            </div>
+            <button
+              class="border-2 border-gray-300 rounded-lg px-2 py-2 text-gray-300 cursor-pointer mt-3"
+            >
+              Create
+            </button>
+          </div>
         </div>
+        <!-- end of statement -->
       </div>
     </div>
 
@@ -27,10 +65,10 @@
             <th
               class="px-6 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
             >
-              Sale
+             Item Name
             </th>
             <th
-              class="px-6 align-middle  py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+              class="px-6 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
             >
               Amount(Ksh)
             </th>
@@ -48,7 +86,10 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
-            <font-awesome-icon :icon="['fas', 'arrow-up']" class="text-green-400"/>
+              <font-awesome-icon
+                :icon="['fas', 'arrow-up']"
+                class="text-green-400"
+              />
               Fresh Water
             </th>
             <td
@@ -71,4 +112,19 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const showInput = ref(false);
+const inputField = ref(null);
+
+const toggleInput = () => {
+  showInput.value = !showInput.value;
+  if (showInput.value) {
+    inputField.value.focus();
+  }
+};
+
+const hideInput = () => {
+  showInput.value = false;
+};
+</script>

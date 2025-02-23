@@ -84,6 +84,7 @@
 <script setup>
 import { authCounterStore } from "../../store/auth";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 defineEmits(["close-modal"]);
 defineProps({
@@ -98,13 +99,20 @@ const togglePasswordVisibility = () => {
   passwordVisible.value = !passwordVisible.value;
 };
 
+const router = useRouter();
+
 const auth = authCounterStore();
 
 const name = ref("");
 const password = ref("");
 
 const signupUser = async () => {
-  await auth.createAccount(name.value, password.value);
+  await auth.createAccount(name.value, password.value).then((result) => {});
+  router.push({
+    path: "/darshboard1",
+  });
+  name.value = "";
+  password.value = "";
 };
 </script>
 
