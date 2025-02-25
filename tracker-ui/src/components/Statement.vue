@@ -23,30 +23,30 @@
             v-if="showInput"
             :class="{ 'opacity-100': showInput, 'opacity-0': !showInput }"
             @blur="hideInput"
-            class="absolute p-4 bg-gray-500 duration-300 transition-opacity w-64"
+            class="absolute p-4 bg-gray-500 duration-300 transition-opacity w-64 rounded-md"
           >
-            <label>Item Name</label>
+            <label class="text-gray-200 text-sm">Item Name</label>
             <div class="relative space-y-4">
               <input
-                ref="inputField"
+                v-model="name"
                 type="text"
                 placeholder="Enter item name..."
                 class="border rounded p-2 focus:outline-none text-gray-300"
               />
-              <label>Amount</label>
+              <label class="text-gray-200 text-sm">Amount</label>
               <input
-                ref="inputField"
-                type="text"
-                placeholder="Enter item amount..."
+                v-model="amount"
+                type="number"
+                placeholder="Enter amount..."
                 class="border rounded p-2 focus:outline-none text-gray-300"
               />
               <input
-                ref="inputField"
                 type="date"
                 class="border rounded p-2 focus:outline-none text-gray-300"
               />
             </div>
             <button
+              @click="addTrans"
               class="border-2 border-gray-300 rounded-lg px-2 py-2 text-gray-300 cursor-pointer mt-3"
             >
               Create
@@ -65,7 +65,7 @@
             <th
               class="px-6 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
             >
-             Item Name
+              Item Name
             </th>
             <th
               class="px-6 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -114,17 +114,26 @@
 
 <script setup>
 import { ref } from "vue";
+import { useTransStore } from "../../store/transaction";
+
 const showInput = ref(false);
-const inputField = ref(null);
+const transaction = useTransStore();
 
 const toggleInput = () => {
   showInput.value = !showInput.value;
-  if (showInput.value) {
-    inputField.value.focus();
-  }
 };
 
 const hideInput = () => {
   showInput.value = false;
+};
+
+const name = ref("");
+const amount = ref(0);
+const date = ref("MM-DD-YYYY");
+const addTrans = async () => {
+  await transaction.createTransaction(name.value, amount.value, date.value);
+  name.value = "";
+  amount.value = "";
+  date.value = "";
 };
 </script>

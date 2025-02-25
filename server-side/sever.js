@@ -6,6 +6,7 @@ const cors = require('cors')
 const logger = require('morgan')
 const newUser = require('./routers/signup')
 const loginUser = require('./routers/login')
+const createTrans = require("./routers/transRouter")
 
 env.config({ path: "./.env" });
 
@@ -29,6 +30,7 @@ mongoose
 // ROUTERS
 app.use('/', newUser)
 app.use('/', loginUser)
+app.use('/', createTrans )
 // END ROUTERS
 
 app.listen(8000, async () => {
