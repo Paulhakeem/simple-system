@@ -40,10 +40,6 @@
                 placeholder="Enter amount..."
                 class="border rounded p-2 focus:outline-none text-gray-300"
               />
-              <input
-                type="date"
-                class="border rounded p-2 focus:outline-none text-gray-300"
-              />
             </div>
             <button
               @click="addTrans"
@@ -82,7 +78,7 @@
 
         <!-- TABLE BODY -->
         <tbody>
-          <tr>
+          <tr v-for="data in transaction.statments" :key="data._id">
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
@@ -90,19 +86,19 @@
                 :icon="['fas', 'arrow-up']"
                 class="text-green-400"
               />
-              Fresh Water
+              {{ data.name }}
             </th>
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-[#1796d5] font-bold"
             >
-              1,480
+              {{ data.amount }}
             </td>
 
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <div class="items-center text-center">
-                <p>4th March 2025</p>
+                <p>{{ data.date }}</p>
               </div>
             </td>
           </tr>
@@ -129,11 +125,10 @@ const hideInput = () => {
 
 const name = ref("");
 const amount = ref(0);
-const date = ref("MM-DD-YYYY");
+const date = new Date().toISOString().split("T")[0];
 const addTrans = async () => {
-  await transaction.createTransaction(name.value, amount.value, date.value);
+  await transaction.createTransaction(name.value, amount.value, date);
   name.value = "";
   amount.value = "";
-  date.value = "";
 };
 </script>

@@ -12,8 +12,9 @@ export const useTransStore = defineStore("transactions", () => {
         date,
       })
       .then((result) => {
-        console.log(result.data.create);
-        statments.value = result.data.create
+        // const data = result.data.create
+        statments.value.push(result.data.create)
+        console.log(statments);
       })
       .catch((err) => {
         console.log(err);
