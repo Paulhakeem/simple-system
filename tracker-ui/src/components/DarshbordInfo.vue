@@ -6,7 +6,7 @@
         <div class="text-center my-4">
           <h5>Total(Ksh)</h5>
           <div class="py-2">
-            <h1 class="text-4xl font-bold text-green-400">100,000</h1>
+            <h1 class="text-4xl font-bold text-green-400">{{ trans.totalMount }}</h1>
           </div>
           <div class="flex gap-2 justify-center items-center">
             <span class="text-sm">Balance:</span>
@@ -74,4 +74,7 @@
 
 <script setup>
 import Statement from "./Statement.vue";
+import { useTransStore } from "../../store/transaction";
+
+const trans = useTransStore()
 </script>
