@@ -40,7 +40,7 @@
         <div class="text-center my-4">
           <h5>Epenses(Ksh)</h5>
           <div class="py-2">
-            <h1 class="text-4xl font-bold text-red-500">-60,000</h1>
+            <h1 class="text-4xl font-bold text-red-500">{{ trans.totalExpenses }}</h1>
           </div>
           <h6 class="text-sm">Money used to pay bills</h6>
         </div>

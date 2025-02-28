@@ -3,13 +3,7 @@ import axios from "axios";
 import { ref, computed, onMounted } from "vue";
 
 export const useTransStore = defineStore("transactions", () => {
-  const statments = ref([
-    {
-      name: "ice cube",
-      amount: 300,
-      date: "2025-02-26",
-    },
-  ]);
+  const statments = ref([]);
   const createTransaction = async (name, amount, date) => {
     await axios
       .post("http://localhost:8000/transactions", {
@@ -18,7 +12,6 @@ export const useTransStore = defineStore("transactions", () => {
         date,
       })
       .then((result) => {
-        // const data = result.data.create
         statments.value.push(result.data.create);
         console.log(statments);
       })
@@ -34,18 +27,26 @@ export const useTransStore = defineStore("transactions", () => {
     );
   });
 
-  onMounted(async() => {
+  onMounted(async () => {
     const res = await axios.get("http://localhost:8000/statements");
     if (res) {
-      statments.value = res.data.data
+      statments.value = res.data.data;
     } else {
       console.log("error");
     }
-  })
+  });
+
+  // calculate expenses
+  const totalExpenses = computed(() => {
+    return statments.value
+      .filter((statement) => statement.value < 0)
+      .reduce((total, statement) => total + statement.amount, 0);
+  });
 
   return {
     createTransaction,
     statments,
     totalMount,
+    totalExpenses,
   };
 });
