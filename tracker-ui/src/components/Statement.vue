@@ -126,6 +126,7 @@ const hideInput = () => {
 const name = ref("");
 const amount = ref(0);
 const date = new Date().toISOString().split("T")[0];
+
 const addTrans = async () => {
   await transaction.createTransaction(name.value, amount.value, date);
   name.value = "";
