@@ -51,21 +51,6 @@ const toggleLogin = () => {
         </div>
       </div>
     </div>
-    <!-- 
-    <div class="flex space-x-7 justify-center pt-6">
-      <button
-        
-        class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
-      >
-        Signup
-      </button>
-      <button
-       
-        class="border-2 border-[#1796d5] rounded-lg px-3 py-2 text-[#1796d5] cursor-pointer hover:bg-[#1796d5] hover:text-gray-200"
-      >
-        Signin
-      </button>
-    </div> -->
 
     <SignupModal :modalActive="modalActive" @close-modal="toggleModal" />
     <loginModal :loginActive="loginActive" @close-login="toggleLogin" />

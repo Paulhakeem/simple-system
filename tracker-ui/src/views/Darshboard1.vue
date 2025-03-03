@@ -11,20 +11,10 @@
             href="#"
           >
             <font-awesome-icon
-              @click="toggleInput"
               :icon="['fas', 'business-time']"
               class="text-xl text-gray-300"
             />
           </a>
-          <input
-            v-if="showInput"
-            ref="inputField"
-            type="text"
-            placeholder="Enter text..."
-            class="absolute top-0 left-10 border rounded p-2 focus:outline-none transition-opacity duration-300 z-50"
-            :class="{ 'opacity-100': showInput, 'opacity-0': !showInput }"
-            @blur="hideInput"
-          />
         </div>
         <a
           class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
@@ -102,19 +92,4 @@
 
 <script setup>
 import DarshbordInfo from "@/components/DarshbordInfo.vue";
-import { ref } from "vue";
-
-const showInput = ref(false);
-const inputField = ref(null);
-
-const toggleInput = () => {
-  showInput.value = !showInput.value;
-  if (showInput.value) {
-    inputField.value.focus();
-  }
-};
-
-const hideInput = () => {
-  showInput.value = false;
-};
 </script>
