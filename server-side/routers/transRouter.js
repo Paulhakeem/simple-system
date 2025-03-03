@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.route('/transactions').post(trans.createtransaction)
 router.route('/statements').get(trans.getTrans)
-
+router.route('/filter').get(trans.filterData)
 
 
 module.exports = router
