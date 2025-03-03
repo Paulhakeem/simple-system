@@ -10,7 +10,7 @@
           </div>
           <div class="flex gap-2 justify-center items-center">
             <span class="text-sm">Total Amount:</span>
-            <h6 class="text-lg font-semibold">Ksh{{ trans.totalAmout }}</h6>
+            <h6 class="text-lg font-semibold"><span class="text-xs">Ksh</span>{{ trans.totalAmout }}</h6>
           </div>
         </div>
       </div>

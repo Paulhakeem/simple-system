@@ -46,7 +46,7 @@ export const useTransStore = defineStore("transactions", () => {
   // calculate expenses
   const totalExpenses = computed(() => {
     return statments.value
-      .filter((statement) => statement.value < 0)
+      .filter((statement) => statement.amount < 0)
       .reduce((total, statement) => total + statement.amount, 0)
       .toFixed(2);
   });
