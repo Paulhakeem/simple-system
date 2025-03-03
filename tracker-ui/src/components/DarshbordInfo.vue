@@ -4,13 +4,13 @@
       <!-- TOTAL MONEY -->
       <div class="h-auto col-span-1 bg-gray-700">
         <div class="text-center my-4">
-          <h5>Total(Ksh)</h5>
+          <h5>Income(Ksh)</h5>
           <div class="py-2">
-            <h1 class="text-4xl font-bold text-green-400">{{ trans.totalMount }}</h1>
+            <h1 class="text-4xl font-bold text-green-400">{{ trans.income }}</h1>
           </div>
           <div class="flex gap-2 justify-center items-center">
-            <span class="text-sm">Balance:</span>
-            <h6 class="text-lg font-semibold">Ksh40,000</h6>
+            <span class="text-sm">Total Amount:</span>
+            <h6 class="text-lg font-semibold">Ksh{{ trans.totalAmout }}</h6>
           </div>
         </div>
       </div>

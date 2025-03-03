@@ -20,11 +20,18 @@ export const useTransStore = defineStore("transactions", () => {
       });
   };
 
-  const totalMount = computed(() => {
-    return statments.value.reduce(
-      (total, statment) => total + statment.amount,
-      0
-    );
+  const totalAmout = computed(() => {
+    return statments.value
+      .reduce((total, statment) => total + statment.amount, 0)
+      .toFixed(2);
+  });
+
+  // income
+  const income = computed(() => {
+    return statments.value
+      .filter((statment) => statment.amount > 0)
+      .reduce((total, statement) => total + statement.amount, 0)
+      .toFixed(2);
   });
 
   onMounted(async () => {
@@ -40,13 +47,15 @@ export const useTransStore = defineStore("transactions", () => {
   const totalExpenses = computed(() => {
     return statments.value
       .filter((statement) => statement.value < 0)
-      .reduce((total, statement) => total + statement.amount, 0);
+      .reduce((total, statement) => total + statement.amount, 0)
+      .toFixed(2);
   });
 
   return {
     createTransaction,
     statments,
-    totalMount,
+    totalAmout,
+    income,
     totalExpenses,
   };
 });

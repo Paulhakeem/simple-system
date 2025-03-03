@@ -33,7 +33,9 @@
                 placeholder="Enter item name..."
                 class="border rounded p-2 focus:outline-none text-gray-300"
               />
-              <label class="text-gray-200 text-sm">Amount</label>
+              <label class="text-gray-200 text-sm"
+                >(Negative(-)-Expenses, Positive(+)-Income)</label
+              >
               <input
                 v-model="amount"
                 type="number"
@@ -83,8 +85,14 @@
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
               <font-awesome-icon
+                v-if="data.amount > 0"
                 :icon="['fas', 'arrow-up']"
                 class="text-green-400"
+              />
+              <font-awesome-icon
+                v-else
+                :icon="['fas', 'arrow-down']"
+                class="text-red-500"
               />
               {{ data.name }}
             </th>
