@@ -1,23 +1,24 @@
 const Users = require("../model/users");
 
 exports.loginUser = async (req, res, next) => {
-  const { name, password } = req.body;
-  if (!name || !password) {
-    res.status(401).json({
-      statusCode: 401,
-      message: "check your inputs!",
-    });
-  }
-
   try {
-    const findUser = await Users.findOne({ name }).select("+password");
-    const login = await findUser.comparePassword(password);
-    if (!login) {
-      res.status(401).json({
+    const { name, password } = req.body;
+    const findUser = await Users.findOne({ name });
+
+    if(!findUser){
+      return res.status(401).json({
         statusCode: 401,
-        message: "check your logics",
-      });
+        message: "Invalid credentials",
+      })
     }
+    const isMatch = await findUser.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({
+        statusCode: 401,
+        message: "Invalid credentials",
+      })
+    }
+    req.session.userId = findUser._id  // Store user ID in session
     res.status(200).json({
       statusCode: 200,
       message: "Login successfully",
@@ -28,5 +29,5 @@ exports.loginUser = async (req, res, next) => {
       message: "Something went wrong",
     });
   }
-  next()
+  next();
 };

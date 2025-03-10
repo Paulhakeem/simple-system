@@ -51,11 +51,16 @@ export const useTransStore = defineStore("transactions", () => {
       .toFixed(2);
   });
 
+  const filterExpenses = ()=> {
+
+  }
+
   return {
     createTransaction,
     statments,
     totalAmout,
     income,
     totalExpenses,
+    filterExpenses
   };
 });
