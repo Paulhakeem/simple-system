@@ -105,7 +105,7 @@ const name = ref("");
 const password = ref("");
 
 const loginUser = async () => {
-  await auth.singIn(name.value, password.value).then((result) => {});
+  await auth.singIn(name.value, password.value)
   router.push({
     path: "/darshboard1",
   });

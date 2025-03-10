@@ -22,11 +22,11 @@ export const authCounterStore = defineStore("auth", () => {
 
   const singIn = async (name, password) => {
     try {
-      const login = await axios.post("http://localhost:8000/login", {
+      const user = await axios.post("http://localhost:8000/login", {
         name,
         password,
       });
-      if (login) {
+      if (user) {
         console.log("successfully");
       }
     } catch (error) {}
