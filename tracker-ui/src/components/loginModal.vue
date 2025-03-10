@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="my-2 mx-auto w-10/12 justify-end flex items-end">
-                <button
+                <button @click="loginUser"
                   class="bg-gray-600 rounded-lg px-3 py-2 text-white cursor-pointer"
                 >
                   Login
@@ -80,6 +80,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { authCounterStore } from "../../store/auth";
+import { useRouter } from "vue-router";
+
 defineEmits(["close-login"]);
 defineProps({
   loginActive: {
@@ -92,6 +95,22 @@ const passwordVisible = ref(false);
 
 const togglePasswordVisibility = () => {
   passwordVisible.value = !passwordVisible.value;
+};
+
+const router = useRouter();
+
+const auth = authCounterStore();
+
+const name = ref("");
+const password = ref("");
+
+const loginUser = async () => {
+  await auth.singIn(name.value, password.value).then((result) => {});
+  router.push({
+    path: "/darshboard1",
+  });
+  name.value = "";
+  password.value = "";
 };
 </script>
 
