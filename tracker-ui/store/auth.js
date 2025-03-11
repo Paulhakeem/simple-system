@@ -1,16 +1,17 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-
 export const authCounterStore = defineStore("auth", () => {
-
   const createAccount = async (name, password) => {
     try {
       const user = await axios.post("http://localhost:8000/signup", {
         name,
         password,
       });
+
       if (user) {
+        const token = user.data.token 
+        localStorage.setItem('token', token)
         console.log(user);
       }
     } catch (error) {
@@ -25,9 +26,13 @@ export const authCounterStore = defineStore("auth", () => {
         password,
       });
       if (user) {
-        console.log("successfully");
+        const token = user.data.token 
+        localStorage.setItem('token', token)
+        console.log(user);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log("error occurs");
+    }
   };
 
   return { createAccount, singIn };
