@@ -4,8 +4,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const logger = require("morgan");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
 const newUser = require("./routers/signup");
 const loginUser = require("./routers/login");
 const createTrans = require("./routers/transRouter");
@@ -18,19 +16,6 @@ app.use(bodyParser.json());
 app.use(logger("dev"));
 app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: false }));
-// sessesion
-app.use(
-  session({
-    secret: process.env.SECRET_TOKEN,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.CONNECTION_STR }),
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24, // 1 day
-      secure: true
-    },
-  })
-);
 
 mongoose
   .connect(process.env.CONNECTION_STR, {})

@@ -17,8 +17,8 @@ exports.loginUser = async (req, res, next) => {
         statusCode: 401,
         message: "Invalid credentials",
       })
-    }
-    req.session.userId = findUser._id  // Store user ID in session
+    } 
+    req.session.userId = findUser._id // Store user ID in session
     res.status(200).json({
       statusCode: 200,
       message: "Login successfully",

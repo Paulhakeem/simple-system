@@ -11,9 +11,7 @@ export const authCounterStore = defineStore("auth", () => {
         password,
       });
       if (user) {
-        router.push({
-          path: "/",
-        });
+        console.log(user);
       }
     } catch (error) {
       console.log(error.message);
