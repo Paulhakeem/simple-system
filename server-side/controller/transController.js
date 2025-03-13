@@ -43,5 +43,23 @@ exports.getTrans = async (req, res, next) => {
       message: "Not Found",
     });
   }
-  next()
+  next();
+};
+
+exports.filterTrans = async (req, res, next) => {
+  try {
+    const filter = await Transactions.find({ amount: { $lt: 0 } });
+    if (filter) {
+      return res.status(200).json({
+        statusCode: 200,
+        filter,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      statusCode: 500,
+      message: "something went wrong",
+    });
+  }
+  next();
 };
