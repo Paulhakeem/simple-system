@@ -4,6 +4,7 @@ import { ref, computed, onMounted } from "vue";
 
 export const useTransStore = defineStore("transactions", () => {
   const statments = ref([]);
+  const filterExp = ref([])
   const createTransaction = async (name, amount, date) => {
     await axios
       .post("http://localhost:8000/transactions", {
@@ -38,6 +39,7 @@ export const useTransStore = defineStore("transactions", () => {
     const res = await axios.get("http://localhost:8000/statements");
     if (res) {
       statments.value = res.data.data;
+      
     } else {
       console.log("error");
     }
@@ -51,9 +53,29 @@ export const useTransStore = defineStore("transactions", () => {
       .toFixed(2);
   });
 
-  const filterExpenses = ()=> {
+  onMounted(async ()=> {
+    await axios
+      .get("http://localhost:8000/filter-data")
+      .then((result) => {
+        filterExp.value = result.data.filter
+        console.log(result.data.filter[0]);
+        console.log(filterExp);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+        
+      });
+  });
 
-  }
+
+  // calculating expenses percentage
+  const getExp = computed(()=> {
+    if (statments.value.length === 0) {
+      return 0
+    }
+    return (filterExp.value.length / statments.value.length) * 100
+  })
 
   return {
     createTransaction,
@@ -61,6 +83,8 @@ export const useTransStore = defineStore("transactions", () => {
     totalAmout,
     income,
     totalExpenses,
-    filterExpenses
+    filterExp,
+    getExp
+    // filterExpenses,
   };
 });

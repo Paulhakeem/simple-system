@@ -29,7 +29,7 @@
             <p class="py-1">Money Out</p>
             <div class="flex gap-2">
             <font-awesome-icon :icon="['fas', 'arrow-down']" class="text-red-500 text-xl"/>
-            <span class="text-md text-red-500">20%</span>
+            <span class="text-md text-red-500">{{trans.getExp}}%</span>
           </div>
          </div>
         </div>
