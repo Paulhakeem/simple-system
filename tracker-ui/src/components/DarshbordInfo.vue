@@ -9,7 +9,7 @@
             <h1 class="text-4xl font-bold text-green-400">{{ trans.income }}</h1>
           </div>
           <div class="flex gap-2 justify-center items-center">
-            <span class="text-sm">Total Balance:</span>
+            <span class="text-sm">Total Amount:</span>
             <h6 class="text-lg font-semibold"><span class="text-xs">Ksh</span>{{ trans.totalAmout }}</h6>
           </div>
         </div>
@@ -21,7 +21,7 @@
          <div>
             <p class="py-1">Money In</p>
             <div class="flex gap-2">
-            <span class="text-green-400 text-md">50%</span>
+            <span class="text-green-400 text-md">{{ trans.getIncome }}%</span>
             <font-awesome-icon :icon="['fas', 'arrow-up']" class="text-green-400 text-xl"/>
           </div>
          </div>

@@ -1,5 +1,6 @@
 const Transactions = require("../model/transaction");
 
+// create transaction
 exports.createtransaction = async (req, res, next) => {
   const { name, amount, date } = req.body;
 
@@ -28,6 +29,7 @@ exports.createtransaction = async (req, res, next) => {
   next();
 };
 
+// get total tansactions
 exports.getTrans = async (req, res, next) => {
   try {
     const data = await Transactions.find();
@@ -46,9 +48,31 @@ exports.getTrans = async (req, res, next) => {
   next();
 };
 
-exports.filterTrans = async (req, res, next) => {
+// filter data
+exports.filterExpe = async (req, res, next) => {
   try {
-    const filter = await Transactions.find({ amount: { $lt: 0 } });
+    const filter = await Transactions.find({ amount: { $lt: 0 }});
+    if (filter) {
+      return res.status(200).json({
+        statusCode: 200,
+        filter,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      statusCode: 500,
+      message: "something went wrong",
+    });
+  }
+  next();
+};
+
+
+// filter data above 0
+
+exports.filterIncome = async (req, res, next) => {
+  try {
+    const filter = await Transactions.find({ amount: { $gt: 0 } });
     if (filter) {
       return res.status(200).json({
         statusCode: 200,

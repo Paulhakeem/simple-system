@@ -5,6 +5,7 @@ import { ref, computed, onMounted } from "vue";
 export const useTransStore = defineStore("transactions", () => {
   const statments = ref([]);
   const filterExp = ref([])
+  const filterInc = ref([])
   const createTransaction = async (name, amount, date) => {
     await axios
       .post("http://localhost:8000/transactions", {
@@ -55,7 +56,7 @@ export const useTransStore = defineStore("transactions", () => {
 
   onMounted(async ()=> {
     await axios
-      .get("http://localhost:8000/filter-data")
+      .get("http://localhost:8000/filter-exp")
       .then((result) => {
         filterExp.value = result.data.filter
         console.log(result.data.filter[0]);
@@ -74,9 +75,29 @@ export const useTransStore = defineStore("transactions", () => {
     if (statments.value.length === 0) {
       return 0
     }
-    return (filterExp.value.length / statments.value.length) * 100
+    return Math.round((filterExp.value.length / statments.value.length) * 100)
   })
 
+
+  // calculating income percentage
+  onMounted(async ()=> {
+    await axios
+      .get("http://localhost:8000/filter-inc")
+      .then((result) => {
+        filterInc.value = result.data.filter
+      })
+      .catch((err) => {
+        console.log(err);
+        
+      });
+  });
+  const getIncome = computed(()=> {
+    if (statments.value.length === 0) {
+      return 0
+    }
+    return Math.round((filterInc.value.length / statments.value.length)* 100)
+  })
+  
   return {
     createTransaction,
     statments,
@@ -84,7 +105,9 @@ export const useTransStore = defineStore("transactions", () => {
     income,
     totalExpenses,
     filterExp,
-    getExp
+    getExp,
+    getIncome,
+    filterInc
     // filterExpenses,
   };
 });
