@@ -9,7 +9,7 @@
             <h1 class="text-4xl font-bold text-green-400">{{ trans.income }}</h1>
           </div>
           <div class="flex gap-2 justify-center items-center">
-            <span class="text-sm">Total Amount:</span>
+            <span class="text-sm">Total Balance:</span>
             <h6 class="text-lg font-semibold"><span class="text-xs">Ksh</span>{{ trans.totalAmout }}</h6>
           </div>
         </div>
