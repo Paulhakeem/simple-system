@@ -4,11 +4,23 @@ body{
   background-color: #323338;
 }
 
-/* @media screen and (max-width: 720px) {
-  #box{
-    grid-template-columns:  repeat(1, minmax(0, 1fr));
-  }
-} */
+@media screen and (max-width: 480px) {
+  #flex-box h5 {
+   font-size: medium;
+   }
+   #flex-box h1 {
+   font-size: 1.4em;
+   }
+   #flex-box-span {
+   display: inline-block;
+   }
+   #progress {
+    display: inline-block;
+    }
+    #col {
+      text-align: center;
+      }
+ }
 
 
 
