@@ -9,7 +9,7 @@ export const useUserStore = defineStore("user", () => {
     try {
       const user = await axios.get("http://localhost:8000/user", {
         headers: {
-          Authorization: `Bearer ${jwt}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       if (user) {

@@ -9,7 +9,7 @@ exports.isAuthenticated = async (req, res, next) => {
   const userToken = req.headers.authorization;
 
   if (userToken) {
-    tokens = userToken.split(" ")[1];
+    const tokens = userToken.split(" ")[1];
     try {
       const promisifyToken = jwt.verify(tokens, process.env.SECRET_TOKEN);
 
