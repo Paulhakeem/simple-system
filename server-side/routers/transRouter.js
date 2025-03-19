@@ -1,6 +1,5 @@
 const express = require("express");
 const trans = require("../controller/transController");
-const protected = require("../middleware/protectRoutes");
 
 const router = express.Router();
 

@@ -51,12 +51,15 @@
     <div class="h-auto col-span-1 bg-gray-700 py-1 w-full mt-10">
         <Statement />
       </div>
+      <button @click="user.getUser">button</button>
   </div>
 </template>
 
 <script setup>
 import Statement from "./Statement.vue";
 import { useTransStore } from "../../store/transaction";
+import { useUserStore } from "../../store/user";
 
 const trans = useTransStore()
+const user = useUserStore()
 </script>

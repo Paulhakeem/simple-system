@@ -108,6 +108,5 @@ export const useTransStore = defineStore("transactions", () => {
     getExp,
     getIncome,
     filterInc
-    // filterExpenses,
   };
 });
