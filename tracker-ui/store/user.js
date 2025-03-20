@@ -6,6 +6,7 @@ export const useUserStore = defineStore("user", () => {
   const user = ref([]);
 
   const getUser = async () => {
+    const token = localStorage.getItem('token')
     try {
       const user = await axios.get("http://localhost:8000/user", {
         headers: {
@@ -13,8 +14,6 @@ export const useUserStore = defineStore("user", () => {
         },
       });
       if (user) {
-        localStorage.getItem('token')
-
         console.log(user);
       }
     } catch (error) {
