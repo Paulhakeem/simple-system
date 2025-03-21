@@ -117,11 +117,13 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useTransStore } from "../../store/transaction";
+import { useUserStore } from "../../store/user";
 
 const showInput = ref(false);
 const transaction = useTransStore();
+const profile = useUserStore()
 
 const toggleInput = () => {
   showInput.value = !showInput.value;
@@ -131,13 +133,20 @@ const hideInput = () => {
   showInput.value = false;
 };
 
+onMounted(async() => {
+  await profile.getUser()
+})
+
 const name = ref("");
 const amount = ref(0);
 const date = new Date().toISOString().split("T")[0];
+const userId = profile.user._id
 
 const addTrans = async () => {
-  await transaction.createTransaction(name.value, amount.value, date);
+  await transaction.createTransaction(name.value, amount.value, date );
   name.value = "";
   amount.value = "";
+  console.log(userId);
+  
 };
 </script>

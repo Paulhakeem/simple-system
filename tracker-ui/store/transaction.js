@@ -6,6 +6,7 @@ export const useTransStore = defineStore("transactions", () => {
   const statments = ref([]);
   const filterExp = ref([])
   const filterInc = ref([])
+
   const createTransaction = async (name, amount, date) => {
     await axios
       .post("http://localhost:8000/transactions", {
@@ -15,7 +16,6 @@ export const useTransStore = defineStore("transactions", () => {
       })
       .then((result) => {
         statments.value.push(result.data.create);
-        console.log(statments);
       })
       .catch((err) => {
         console.log(err);
@@ -59,8 +59,6 @@ export const useTransStore = defineStore("transactions", () => {
       .get("http://localhost:8000/filter-exp")
       .then((result) => {
         filterExp.value = result.data.filter
-        console.log(result.data.filter[0]);
-        console.log(filterExp);
         
       })
       .catch((err) => {
