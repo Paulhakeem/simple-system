@@ -31,7 +31,8 @@
                 v-model="name"
                 type="text"
                 placeholder="Enter item name..."
-                class="border rounded p-2 focus:outline-none text-gray-300" required
+                class="border rounded p-2 focus:outline-none text-gray-300"
+                required
               />
               <label class="text-gray-200 text-sm"
                 >(Negative(-)-Expenses, Positive(+)-Income)</label
@@ -40,7 +41,8 @@
                 v-model="amount"
                 type="number"
                 placeholder="Enter amount..."
-                class="border rounded p-2 focus:outline-none text-gray-300" required
+                class="border rounded p-2 focus:outline-none text-gray-300"
+                required
               />
             </div>
             <button
@@ -78,8 +80,15 @@
           </tr>
         </thead>
 
+        <tbody v-if="transaction.statments.length === 0">
+       <tr>
+        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"><Relorder/></th>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><Relorder/></td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><Relorder/></td>
+       </tr>
+        </tbody>
         <!-- TABLE BODY -->
-        <tbody>
+        <tbody v-else>
           <tr v-for="data in transaction.statments" :key="data._id">
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
@@ -120,10 +129,10 @@
 import { ref, onMounted } from "vue";
 import { useTransStore } from "../../store/transaction";
 import { useUserStore } from "../../store/user";
-
+import Relorder from "./Relorder.vue";
 const showInput = ref(false);
 const transaction = useTransStore();
-const {getUser}= useUserStore()
+const { getUser } = useUserStore();
 
 const toggleInput = () => {
   showInput.value = !showInput.value;
@@ -133,19 +142,17 @@ const hideInput = () => {
   showInput.value = false;
 };
 
-onMounted(async() => {
-  await getUser()
-})
+onMounted(async () => {
+  await getUser();
+});
 
 const name = ref("");
 const amount = ref(0);
 const date = new Date().toISOString().split("T")[0];
 
 const addTrans = async () => {
-  await transaction.createTransaction(name.value, amount.value, date );
+  await transaction.createTransaction(name.value, amount.value, date);
   name.value = "";
   amount.value = "";
-  
-  
 };
 </script>
