@@ -13,6 +13,7 @@ export const useTransStore = defineStore("transactions", () => {
         name,
         amount,
         date,
+
       })
       .then((result) => {
         statments.value.push(result.data.create);
@@ -105,6 +106,6 @@ export const useTransStore = defineStore("transactions", () => {
     filterExp,
     getExp,
     getIncome,
-    filterInc
+    filterInc,
   };
 });

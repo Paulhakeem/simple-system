@@ -73,6 +73,9 @@
             <div
               class="absolute right-0 flex-col items-start hidden w-40 mt-1 pb-1 bg-gray-800 border border-gray-800 shadow-lg group-focus:flex"
             >
+            <div class="p-3">
+              <h6>Add Shops</h6>
+            </div>
               <a class="w-full px-4 py-2 text-left hover:bg-gray-900" href="#"
                 >shop 1</a
               >

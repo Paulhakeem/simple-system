@@ -14,7 +14,7 @@ exports.isAuthenticated = async (req, res, next) => {
   try {
     const promisifyToken = jwt.verify(token, process.env.SECRET_TOKEN);
 
-    const user = await Users.findById(promisifyToken.id);
+    const user = await Users.findById(promisifyToken.id).lean();
     res.status(200).json({
       statusCode: 200,
       user,

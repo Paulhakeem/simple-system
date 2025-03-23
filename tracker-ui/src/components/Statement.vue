@@ -31,7 +31,7 @@
                 v-model="name"
                 type="text"
                 placeholder="Enter item name..."
-                class="border rounded p-2 focus:outline-none text-gray-300"
+                class="border rounded p-2 focus:outline-none text-gray-300" required
               />
               <label class="text-gray-200 text-sm"
                 >(Negative(-)-Expenses, Positive(+)-Income)</label
@@ -40,7 +40,7 @@
                 v-model="amount"
                 type="number"
                 placeholder="Enter amount..."
-                class="border rounded p-2 focus:outline-none text-gray-300"
+                class="border rounded p-2 focus:outline-none text-gray-300" required
               />
             </div>
             <button
@@ -123,7 +123,7 @@ import { useUserStore } from "../../store/user";
 
 const showInput = ref(false);
 const transaction = useTransStore();
-const profile = useUserStore()
+const {getUser}= useUserStore()
 
 const toggleInput = () => {
   showInput.value = !showInput.value;
@@ -134,19 +134,18 @@ const hideInput = () => {
 };
 
 onMounted(async() => {
-  await profile.getUser()
+  await getUser()
 })
 
 const name = ref("");
 const amount = ref(0);
 const date = new Date().toISOString().split("T")[0];
-const userId = profile.user._id
 
 const addTrans = async () => {
   await transaction.createTransaction(name.value, amount.value, date );
   name.value = "";
   amount.value = "";
-  console.log(userId);
+  
   
 };
 </script>
