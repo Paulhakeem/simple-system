@@ -8,7 +8,7 @@ export const useUserStore = defineStore("user", () => {
   const getUser = async () => {
     const token = localStorage.getItem("token");
     await axios
-      .get("http://localhost:8000/user", {
+      .get(`${import.meta.env.VITE_API_URL}/user`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

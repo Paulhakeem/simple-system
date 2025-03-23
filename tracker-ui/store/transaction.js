@@ -9,7 +9,7 @@ export const useTransStore = defineStore("transactions", () => {
 
   const createTransaction = async (name, amount, date) => {
     await axios
-      .post("http://localhost:8000/transactions", {
+      .post(`${import.meta.env.VITE_API_URL}/transactions`, {
         name,
         amount,
         date,
@@ -38,7 +38,7 @@ export const useTransStore = defineStore("transactions", () => {
   });
 
   onMounted(async () => {
-    const res = await axios.get("http://localhost:8000/statements");
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/statements`);
     if (res) {
       statments.value = res.data.data;
       
@@ -57,7 +57,7 @@ export const useTransStore = defineStore("transactions", () => {
 
   onMounted(async ()=> {
     await axios
-      .get("http://localhost:8000/filter-exp")
+      .get(`${import.meta.env.VITE_API_URL}/filter-exp`)
       .then((result) => {
         filterExp.value = result.data.filter
         
@@ -81,7 +81,7 @@ export const useTransStore = defineStore("transactions", () => {
   // calculating income percentage
   onMounted(async ()=> {
     await axios
-      .get("http://localhost:8000/filter-inc")
+      .get(`${import.meta.env.VITE_API_URL}/filter-inc`)
       .then((result) => {
         filterInc.value = result.data.filter
       })

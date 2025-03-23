@@ -4,7 +4,7 @@ import axios from "axios";
 export const authCounterStore = defineStore("auth", () => {
   const createAccount = async (name, password) => {
     try {
-      const user = await axios.post("http://localhost:8000/signup", {
+      const user = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
         name,
         password,
       });
@@ -21,7 +21,7 @@ export const authCounterStore = defineStore("auth", () => {
 
   const singIn = async (name, password) => {
     try {
-      const user = await axios.post("http://localhost:8000/login", {
+      const user = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
         name,
         password,
       });
