@@ -6,7 +6,7 @@ export const authCounterStore = defineStore("auth", () => {
     try {
       const user = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
         name,
-        password,
+        password
       });
 
       if (user) {

@@ -2,9 +2,9 @@ const Transactions = require("../model/transaction");
 
 // create transaction
 exports.createtransaction = async (req, res, next) => {
-  const { name, amount, date } = req.body;
+  const { name, amount, date, userId } = req.body;
 
-  if (!name || !amount || !date) {
+  if (!name || !amount) {
     res.status(400).json({
       statusCode: 400,
       message: "Check your inputs",

@@ -44,7 +44,7 @@
             class="text-xl text-[#1796d5]"
           />
         </a>
-
+        <!-- user profile -->
         <a
           class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-auto rounded hover:bg-gray-800"
           href="#"
@@ -54,6 +54,7 @@
             class="text-xl text-[#1796d5]"
           />
         </a>
+        <p class="font-medium text-gray-300">{{ user.name }}</p>
       </div>
 
       <!-- HEADER -->
@@ -102,4 +103,7 @@
 
 <script setup>
 import DarshbordInfo from "@/components/DarshbordInfo.vue";
+import { useUserStore } from "../../store/user";
+
+const { user } = useUserStore();
 </script>

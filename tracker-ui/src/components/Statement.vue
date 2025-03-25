@@ -81,11 +81,23 @@
         </thead>
 
         <tbody v-if="transaction.statments.length === 0">
-       <tr>
-        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"><Relorder/></th>
-        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><Relorder/></td>
-        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><Relorder/></td>
-       </tr>
+          <tr>
+            <th
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+            >
+              <Relorder />
+            </th>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              <Relorder />
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              <Relorder />
+            </td>
+          </tr>
         </tbody>
         <!-- TABLE BODY -->
         <tbody v-else>
@@ -132,7 +144,7 @@ import { useUserStore } from "../../store/user";
 import Relorder from "./Relorder.vue";
 const showInput = ref(false);
 const transaction = useTransStore();
-const { getUser } = useUserStore();
+const { user, getUser, userid } = useUserStore();
 
 const toggleInput = () => {
   showInput.value = !showInput.value;
@@ -154,5 +166,6 @@ const addTrans = async () => {
   await transaction.createTransaction(name.value, amount.value, date);
   name.value = "";
   amount.value = "";
+  console.log(userid, 'hello');
 };
 </script>

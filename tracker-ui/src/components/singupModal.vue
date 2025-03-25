@@ -65,6 +65,7 @@
                   />
                 </div>
               </div>
+
               <div class="my-2 mx-auto w-10/12 justify-end flex items-end">
                 <button
                   @click="signupUser"
@@ -105,9 +106,12 @@ const auth = authCounterStore();
 
 const name = ref("");
 const password = ref("");
+const rule = ref("");
 
 const signupUser = async () => {
-  await auth.createAccount(name.value, password.value).then((result) => {});
+  await auth
+    .createAccount(name.value, password.value, rule.value)
+    .then((result) => {});
   router.push({
     path: "/darshboard1",
   });
