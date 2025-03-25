@@ -101,7 +101,7 @@
         </tbody>
         <!-- TABLE BODY -->
         <tbody v-else>
-          <tr v-for="data in transaction.statments" :key="data._id">
+          <tr v-for="data in transaction.statments" :key="data._id" class="border-b-1 border-gray-500">
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
@@ -163,9 +163,16 @@ const amount = ref(0);
 const date = new Date().toISOString().split("T")[0];
 
 const addTrans = async () => {
-  await transaction.createTransaction(name.value, amount.value, date);
+  await transaction.createTransaction(name.value, amount.value, date, user._id);
   name.value = "";
   amount.value = "";
-  console.log(userid, 'hello');
+  console.log(userid, "hello");
 };
 </script>
+
+<!-- :class="[
+data.userId === user._id
+  ? 'border-b-1 border-gray-500'
+  : 'bg-red-200',
+  
+]" -->
