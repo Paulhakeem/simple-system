@@ -64,31 +64,17 @@
             Manage Your Business
           </h1>
 
-          <div class="relative top-0 right-4">
+          <div class="relative">
             <span
               class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
             >
               <font-awesome-icon
+                @click="openMenu"
                 :icon="['fas', 'caret-down']"
                 class="text-xl text-[#1796d5] cursor-pointer active:text-green-500"
               />
             </span>
-
-            <div tabindex="0" class="bg-[#1796d5] mt-[10em] rounded-md">
-              <input type="text" placeholder="Add Category.." class="mx-2 mt-5 pl-2 p-1.5 outline-none border border-gray-200 text-gray-200 text-sm font-light"/>
-              <ul class="py-1">
-                <li
-                  class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800"
-                >
-                  shop 1
-                </li>
-                <li
-                  class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800"
-                >
-                  shop 2
-                </li>
-              </ul>
-            </div>
+            <Dropdown v-if="isOpen" />
           </div>
         </div>
 
@@ -101,7 +87,15 @@
 
 <script setup>
 import DarshbordInfo from "@/components/DarshbordInfo.vue";
+import Dropdown from "@/components/Dropdown.vue";
 import { useUserStore } from "../../store/user";
+import { ref } from "vue";
 
 const { user } = useUserStore();
+
+const isOpen = ref(false);
+
+const openMenu = () => {
+  isOpen.value = !isOpen.value;
+};
 </script>
