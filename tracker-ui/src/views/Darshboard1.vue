@@ -63,35 +63,33 @@
           <h1 class="text-lg font-medium text-[#1796d5]">
             Manage Your Business
           </h1>
-          <button class="relative ml-2 text-sm focus:outline-none group">
-            <div class="flex items-center justify-between">
+
+          <div class="relative top-0 right-4">
+            <span
+              class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+            >
               <font-awesome-icon
                 :icon="['fas', 'caret-down']"
-                class="text-xl text-[#1796d5] cursor-pointer hover:text-gray-800"
+                class="text-xl text-[#1796d5] cursor-pointer active:text-green-500"
               />
-            </div>
+            </span>
 
-            <div
-              class="absolute right-0 flex-col items-start hidden w-40 mt-1 pb-1 bg-gray-800 border border-gray-800 shadow-lg group-focus:flex"
-            >
-              <div class="p-3">
-                <h6>Add Shops</h6>
-                <label for="Email" class="relative">
-                  <input
-                    type="text"
-                    placeholder="Add shop"
-                    class="peer mt-0.5 w-full rounded border boder-1 border-gray-500 p-1.5 sm:text-sm"
-                  />
-                </label>
-              </div>
-              <a class="w-full px-4 py-2 text-left hover:bg-gray-900" href="#"
-                >shop 1</a
-              >
-              <a class="w-full px-4 py-2 text-left hover:bg-gray-900" href="#"
-                >shop 2</a
-              >
+            <div tabindex="0" class="bg-[#1796d5] mt-[10em] rounded-md">
+              <input type="text" placeholder="Add Category.." class="mx-2 mt-5 pl-2 p-1.5 outline-none border border-gray-200 text-gray-200 text-sm font-light"/>
+              <ul class="py-1">
+                <li
+                  class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800"
+                >
+                  shop 1
+                </li>
+                <li
+                  class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800"
+                >
+                  shop 2
+                </li>
+              </ul>
             </div>
-          </button>
+          </div>
         </div>
 
         <!-- darshboard Info-->
