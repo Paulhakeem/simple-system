@@ -31,7 +31,7 @@ const sendResponse = (user, statusCode, res) => {
 };
 
 exports.createUser = async (req, res, next) => {
-  const { name, password, rule } = req.body;
+  const { name, password} = req.body;
   try {
     if (!name || !password) {
       res.status(500).json({

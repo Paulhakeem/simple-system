@@ -15,12 +15,12 @@
       />
       <ul class="py-1">
         <li
-          class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800"
+          class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800 first-letter:uppercase"
         >
           shop 1
         </li>
         <li
-          class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800"
+          class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800 first-letter:uppercase"
         >
           shop 2
         </li>

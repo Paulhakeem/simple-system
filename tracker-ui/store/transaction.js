@@ -38,7 +38,7 @@ export const useTransStore = defineStore("transactions", () => {
   });
 
   onMounted(async () => {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/statements`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/statements/${transId}`);
     if (res) {
       statments.value = res.data.data;
     } else {

@@ -31,8 +31,9 @@ exports.createtransaction = async (req, res, next) => {
 
 // get total tansactions
 exports.getTrans = async (req, res, next) => {
+  const transId = req.body.params
   try {
-    const data = await Transactions.find();
+    const data = await Transactions.find({transId: transId });
     if (data) {
       res.status(200).json({
         statusCode: 200,

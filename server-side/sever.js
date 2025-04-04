@@ -8,6 +8,7 @@ const newUser = require("./routers/signup");
 const loginUser = require("./routers/login");
 const createTrans = require("./routers/transRouter");
 const user = require("./routers/user")
+const createShop = require("./routers/shop")
 
 env.config({ path: "./.env" });
 
@@ -32,6 +33,7 @@ app.use("/", newUser);
 app.use("/", loginUser);
 app.use("/", createTrans);
 app.use('/', user)
+app.use('/', createShop)
 // END ROUTERS
 
 app.listen(8000, async () => {
