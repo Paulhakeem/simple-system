@@ -166,7 +166,6 @@ const addTrans = async () => {
   await transaction.createTransaction(name.value, amount.value, date, user._id);
   name.value = "";
   amount.value = "";
-  console.log(userid, "hello");
 };
 </script>
 

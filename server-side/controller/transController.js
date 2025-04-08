@@ -2,7 +2,7 @@ const Transactions = require("../model/transaction");
 
 // create transaction
 exports.createtransaction = async (req, res, next) => {
-  const { name, amount, date, userId } = req.body;
+  const { name, amount } = req.body;
 
   if (!name || !amount) {
     res.status(400).json({
@@ -23,7 +23,7 @@ exports.createtransaction = async (req, res, next) => {
   } catch (error) {
     res.status(500).json({
       statusCode: 500,
-      message: "Something went wrong",
+      message: error.message,
     });
   }
   next();

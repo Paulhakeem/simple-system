@@ -8,7 +8,7 @@ export const useTransStore = defineStore("transactions", () => {
   const filterExp = ref([]);
   const filterInc = ref([]);
 
-  const {user} = useUserStore()
+  const { user } = useUserStore();
 
   const createTransaction = async (name, amount, date, userId) => {
     await axios
