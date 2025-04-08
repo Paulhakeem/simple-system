@@ -21,6 +21,14 @@
           class="absolute end-2.5 bottom-2.5 text-gray-200"
         />
       </form>
+      <div v-if="shops.length == 0">
+        <div class="items-center justify-center text-center mx-auto">
+          <div
+            class="border-2 border-gray-200 border-dotted rounded-full size-8 animate-spin"
+          ></div>
+        </div>
+        <p class="text-gray-200 p-4">Fetching Data...</p>
+      </div>
       <div v-for="shop in shops" :key="shop._id">
         <ul class="py-1">
           <li
@@ -45,6 +53,7 @@ const name = ref("");
 
 const add = async () => {
   await addShop(name.value, user._id);
+
   name.value = "";
 };
 </script>

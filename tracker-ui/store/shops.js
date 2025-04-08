@@ -27,8 +27,7 @@ export const useShopStore = defineStore("shops", () => {
         params: { userId: user._id },
       })
       .then((result) => {
-        console.log(result.data.result);
-        shops.value = result.data.result;
+        shops.value = result.data.result
       })
       .catch((err) => {
         console.log(err);
