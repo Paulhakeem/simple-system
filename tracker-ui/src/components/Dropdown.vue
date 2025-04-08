@@ -21,18 +21,15 @@
           class="absolute end-2.5 bottom-2.5 text-gray-200"
         />
       </form>
-      <ul class="py-1">
-        <li
-          class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800 first-letter:uppercase"
-        >
-          shop 1
-        </li>
-        <li
-          class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800 first-letter:uppercase"
-        >
-          shop 2
-        </li>
-      </ul>
+      <div v-for="shop in shops" :key="shop._id">
+        <ul class="py-1">
+          <li
+            class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800 first-letter:uppercase"
+          >
+            {{ shop.name }}
+          </li>
+        </ul>
+      </div>
     </div>
   </transition>
 </template>

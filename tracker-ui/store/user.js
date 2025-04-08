@@ -18,7 +18,6 @@ export const useUserStore = defineStore("user", () => {
 
         user.value = res.data.user;
         localStorage.setItem("user", JSON.stringify(res.data.user));
-        console.log(res.data.user);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
