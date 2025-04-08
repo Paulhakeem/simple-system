@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const transSchema = new mongoose.Schema({
-    name: String,
-    amount: Number,
+    name: { type: String, required: true, trim: true },
+    amount: { type: Number, required: true, min: 0 },
     date: String,
-    userId: String
-})
+    userId:{ type: mongoose.Schema.Types.ObjectId, ref: 'Users' }
+},{ timestamps: true })
 
 const Transactions = mongoose.model("Transactions", transSchema)
 

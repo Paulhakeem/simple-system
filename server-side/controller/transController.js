@@ -30,10 +30,10 @@ exports.createtransaction = async (req, res, next) => {
 };
 
 // get total tansactions
-exports.getTrans = async (req, res, next) => {
-  const transId = req.body.params
+exports.getTrans = async (req, res) => {
   try {
-    const data = await Transactions.find({transId: transId });
+    const { userId } = req.query
+    const data = await Transactions.find({ userId });
     if (data) {
       res.status(200).json({
         statusCode: 200,
@@ -46,7 +46,6 @@ exports.getTrans = async (req, res, next) => {
       message: "Not Found",
     });
   }
-  next();
 };
 
 // filter data

@@ -1,11 +1,14 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { ref, computed, onMounted } from "vue";
+import { useUserStore } from "./user";
 
 export const useTransStore = defineStore("transactions", () => {
   const statments = ref([]);
   const filterExp = ref([]);
   const filterInc = ref([]);
+
+  const {user} = useUserStore()
 
   const createTransaction = async (name, amount, date, userId) => {
     await axios
@@ -38,7 +41,9 @@ export const useTransStore = defineStore("transactions", () => {
   });
 
   onMounted(async () => {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/statements/${transId}`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/statements`, {
+      params: { userId: user._id },
+    });
     if (res) {
       statments.value = res.data.data;
     } else {
