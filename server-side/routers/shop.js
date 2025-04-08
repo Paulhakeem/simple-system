@@ -1,7 +1,7 @@
 const express = require('express')
-const userRoute = require("../controller/AddShop")
+const shop = require("../controller/AddShop")
 const router = express.Router()
 
-// router.route('/create-shop-category').get(userRoute.isAuthenticated)
+router.route('/create-shop-category').post(shop.addShop)
 
 module.exports = router

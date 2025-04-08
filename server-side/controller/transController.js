@@ -21,7 +21,7 @@ exports.createtransaction = async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.status(500).json({
+    res.status(500).json({ 
       statusCode: 500,
       message: error.message,
     });

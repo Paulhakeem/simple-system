@@ -168,10 +168,3 @@ const addTrans = async () => {
   amount.value = "";
 };
 </script>
-
-<!-- :class="[
-data.userId === user._id
-  ? 'border-b-1 border-gray-500'
-  : 'bg-red-200',
-  
-]" -->
