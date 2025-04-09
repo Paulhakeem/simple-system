@@ -46,6 +46,7 @@
         </a>
         <!-- user profile -->
         <a
+          @click="toggleModal"
           class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-auto rounded hover:bg-gray-800"
           href="#"
         >
@@ -57,6 +58,11 @@
         <p class="font-medium text-gray-300">{{ user.name }}</p>
       </div>
 
+      <userModal
+        :modalActive="modalActive"
+        @close-modal="toggleModal"
+      ></userModal>
+      <!-- end user -->
       <!-- HEADER -->
       <div class="flex flex-col flex-grow">
         <div class="flex items-center justify-between flex-shrink-0 h-16 px-8">
@@ -89,6 +95,7 @@
 import DarshbordInfo from "@/components/DarshbordInfo.vue";
 import Dropdown from "@/components/Dropdown.vue";
 import { useUserStore } from "../../store/user";
+import userModal from "@/components/userModal.vue";
 import { ref } from "vue";
 
 const { user } = useUserStore();
@@ -97,5 +104,10 @@ const isOpen = ref(false);
 
 const openMenu = () => {
   isOpen.value = !isOpen.value;
+};
+
+const modalActive = ref(null);
+const toggleModal = () => {
+  modalActive.value = !modalActive.value;
 };
 </script>
