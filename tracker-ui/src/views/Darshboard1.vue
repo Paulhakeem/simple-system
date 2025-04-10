@@ -80,7 +80,13 @@
                 class="text-xl text-[#1796d5] cursor-pointer active:text-green-500"
               />
             </span>
-            <Dropdown v-if="isOpen" />
+            <Dropdown v-if="isOpen">
+              <font-awesome-icon
+                :icon="['fas', 'circle-xmark']"
+                class="text-gray-200 pl-4 pt-2 cursor-pointer"
+                @click="openMenu"
+              />
+            </Dropdown>
           </div>
         </div>
 

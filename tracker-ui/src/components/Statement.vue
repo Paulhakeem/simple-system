@@ -130,6 +130,11 @@
                 <p>{{ data.date }}</p>
               </div>
             </td>
+           <td>
+            <span class="flex items-center text-red-500 cursor-pointer">
+              <font-awesome-icon :icon="['fas', 'circle-xmark']" />
+            </span>
+           </td>
           </tr>
         </tbody>
       </table>
@@ -144,7 +149,7 @@ import { useUserStore } from "../../store/user";
 import Relorder from "./Relorder.vue";
 const showInput = ref(false);
 const transaction = useTransStore();
-const { user, getUser, userid } = useUserStore();
+const { user, getUser } = useUserStore();
 
 const toggleInput = () => {
   showInput.value = !showInput.value;

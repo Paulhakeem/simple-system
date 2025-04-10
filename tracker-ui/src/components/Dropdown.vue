@@ -7,7 +7,8 @@
     leave-from-class="transform opacity-100 scale-100"
     leave-to-class="transform opacity-0 scale-95"
   >
-    <div class="bg-[#1796d5] mt-[10em] rounded-md">
+    <div class="bg-[#1796d5] mt-[10em] rounded-md top-0 bottom-5">
+      <slot/>
       <form class="relative">
         <input
           v-model="name"
