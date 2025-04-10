@@ -18,42 +18,13 @@
               Add
             </button>
           </div>
-
-          <div
+          <addTrans
             v-if="showInput"
             :class="{ 'opacity-100': showInput, 'opacity-0': !showInput }"
             @blur="hideInput"
-            class="absolute p-4 bg-gray-500 duration-300 transition-opacity w-64 rounded-md"
-          >
-            <label class="text-gray-200 text-sm">Item Name</label>
-            <div class="relative space-y-4">
-              <input
-                v-model="name"
-                type="text"
-                placeholder="Enter item name..."
-                class="border rounded p-2 focus:outline-none text-gray-300"
-                required
-              />
-              <label class="text-gray-200 text-sm"
-                >(Negative(-)-Expenses, Positive(+)-Income)</label
-              >
-              <input
-                v-model="amount"
-                type="number"
-                placeholder="Enter amount..."
-                class="border rounded p-2 focus:outline-none text-gray-300"
-                required
-              />
-            </div>
-            <button
-              @click="addTrans"
-              class="border-2 border-gray-300 rounded-lg px-2 py-2 text-gray-300 cursor-pointer mt-3"
-            >
-              Create
-            </button>
-          </div>
+          />
         </div>
-        <!-- end of statement -->
+
       </div>
     </div>
 
@@ -101,7 +72,11 @@
         </tbody>
         <!-- TABLE BODY -->
         <tbody v-else>
-          <tr v-for="data in transaction.statments" :key="data._id" class="border-b-1 border-gray-500">
+          <tr
+            v-for="data in transaction.statments"
+            :key="data._id"
+            class="border-b-1 border-gray-500"
+          >
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
             >
@@ -130,11 +105,14 @@
                 <p>{{ data.date }}</p>
               </div>
             </td>
-           <td>
-            <span class="flex items-center text-red-500 cursor-pointer">
-              <font-awesome-icon :icon="['fas', 'circle-xmark']" />
-            </span>
-           </td>
+            <td>
+              <span
+                @click="deleteTrans(data._id)"
+                class="flex items-center text-red-500 cursor-pointer"
+              >
+                <font-awesome-icon :icon="['fas', 'circle-xmark']" />
+              </span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -146,10 +124,14 @@
 import { ref, onMounted } from "vue";
 import { useTransStore } from "../../store/transaction";
 import { useUserStore } from "../../store/user";
+import { useDeleteStore } from "../../store/delete";
+import addTrans from "./addTrans.vue";
 import Relorder from "./Relorder.vue";
+
 const showInput = ref(false);
 const transaction = useTransStore();
-const { user, getUser } = useUserStore();
+const { getUser } = useUserStore();
+const { deleteTrans } = useDeleteStore();
 
 const toggleInput = () => {
   showInput.value = !showInput.value;
@@ -158,18 +140,9 @@ const toggleInput = () => {
 const hideInput = () => {
   showInput.value = false;
 };
-
+// get user
 onMounted(async () => {
   await getUser();
 });
-
-const name = ref("");
-const amount = ref(0);
-const date = new Date().toISOString().split("T")[0];
-
-const addTrans = async () => {
-  await transaction.createTransaction(name.value, amount.value, date, user._id);
-  name.value = "";
-  amount.value = "";
-};
+// delete trans
 </script>

@@ -10,7 +10,6 @@ exports.createtransaction = async (req, res, next) => {
       message: "Check your inputs",
     });
   }
-
   try {
     const create = await Transactions.create(req.body);
     if (create) {
@@ -21,8 +20,7 @@ exports.createtransaction = async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.status(500).json({ 
-      statusCode: 500,
+    res.status(500).json({
       message: error.message,
     });
   }
@@ -32,7 +30,7 @@ exports.createtransaction = async (req, res, next) => {
 // get total tansactions
 exports.getTrans = async (req, res) => {
   try {
-    const { userId } = req.query
+    const { userId } = req.query;
     const data = await Transactions.find({ userId });
     if (data) {
       res.status(200).json({
@@ -42,7 +40,6 @@ exports.getTrans = async (req, res) => {
     }
   } catch (error) {
     res.status(404).json({
-      statusCode: 404,
       message: "Not Found",
     });
   }
@@ -51,7 +48,7 @@ exports.getTrans = async (req, res) => {
 // filter data
 exports.filterExpe = async (req, res, next) => {
   try {
-    const filter = await Transactions.find({ amount: { $lt: 0 }});
+    const filter = await Transactions.find({ amount: { $lt: 0 } });
     if (filter) {
       return res.status(200).json({
         statusCode: 200,
@@ -60,16 +57,13 @@ exports.filterExpe = async (req, res, next) => {
     }
   } catch (error) {
     res.status(500).json({
-      statusCode: 500,
       message: "something went wrong",
     });
   }
   next();
 };
 
-
 // filter data above 0
-
 exports.filterIncome = async (req, res, next) => {
   try {
     const filter = await Transactions.find({ amount: { $gt: 0 } });
@@ -81,9 +75,22 @@ exports.filterIncome = async (req, res, next) => {
     }
   } catch (error) {
     res.status(500).json({
-      statusCode: 500,
       message: "something went wrong",
     });
   }
   next();
+};
+
+// Delete
+exports.deleteTrans = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteItem = await Transactions.findByIdAndDelete(id);
+    if (!deleteItem) {
+      return res.status(404).json({ message: "Transaction not found" });
+    }
+    res.status(200).json({ message: "Transaction deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
 };
