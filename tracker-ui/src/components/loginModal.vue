@@ -18,61 +18,61 @@
           </button>
 
           <!-- SLOT -->
-          <div class="pb-2 text-center ">
+          <div class="pb-2 text-center">
             <h6 class="text-xl">Login To Your Account</h6>
           </div>
-            <div class="bg-[#1796d5] p-4 rounded-md">
-              <!-- component -->
-              <div
-                class="my-2 mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md"
-              >
-                <div>
-                  <button
-                    class="flex items-center bg-gray-400 rounded-l-md border border-white justify-center w-12 h-12 text-white"
-                  >
-                    <font-awesome-icon
-                      :icon="['fas', 'user']"
-                      class="text-white text-lg"
-                    />
-                  </button>
-                </div>
-
-                <div class="w-full">
-                  <input
-                    type="text"
-                    class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 focus:outline-none"
-                    placeholder="Name"
-                  />
-                </div>
-              </div>
-              <div
-                class="my-2 mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md"
-              >
-                <div>
-                  <button
-                    @click="togglePasswordVisibility"
-                    class="flex items-center bg-gray-400 rounded-l-md border border-white justify-center w-12 h-12 text-white"
-                  >
-                    {{ passwordVisible ? "Hide" : "Show" }}
-                  </button>
-                </div>
-
-                <div class="w-full">
-                  <input
-                    :type="passwordVisible ? 'text' : 'password'"
-                    class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 focus:outline-none"
-                    placeholder="Passoward"
-                  />
-                </div>
-              </div>
-              <div class="my-2 mx-auto w-10/12 justify-end flex items-end">
-                <button @click="loginUser"
-                  class="bg-gray-600 rounded-lg px-3 py-2 text-white cursor-pointer"
+          <div class="bg-[#1796d5] p-4 rounded-md">
+            <!-- component -->
+            <div
+              class="my-2 mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md"
+            >
+              <div>
+                <button
+                  class="flex items-center bg-gray-400 rounded-l-md border border-white justify-center w-12 h-12 text-white"
                 >
-                  Login
+                  <font-awesome-icon
+                    :icon="['fas', 'user']"
+                    class="text-white text-lg"
+                  />
                 </button>
               </div>
+
+              <div class="w-full">
+                <input
+                  type="text"
+                  class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 outline-none"
+                  placeholder="Name"
+                />
+              </div>
             </div>
+            <div
+              class="my-2 mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md"
+            >
+              <div>
+                <font-awesome-icon
+                  @click="togglePasswordVisibility"
+                  class="flex items-center justify-center w-12 h-12 text-white"
+                  :icon="passwordVisible ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                />
+              </div>
+
+              <div class="w-full">
+                <input
+                  :type="passwordVisible ? 'text' : 'password'"
+                  class="w-full h-12 px-4 py-1 rounded-r-md border border-gray-100 text-gray-800 outline-none"
+                  placeholder="Passoward"
+                />
+              </div>
+            </div>
+            <div class="my-2 mx-auto w-10/12 justify-end flex items-end">
+              <button
+                @click="loginUser"
+                class="bg-gray-600 rounded-lg px-3 py-2 text-white cursor-pointer"
+              >
+                Login
+              </button>
+            </div>
+          </div>
         </div>
       </transition>
     </div>
@@ -106,7 +106,7 @@ const name = ref("");
 const password = ref("");
 
 const loginUser = async () => {
-  await auth.singIn(name.value, password.value)
+  await auth.singIn(name.value, password.value);
   router.push({
     path: "/darshboard1",
   });

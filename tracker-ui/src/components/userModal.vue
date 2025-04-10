@@ -15,9 +15,9 @@
                 class="bg-[#1796d5] transform flex items-center mb-10 py-8 px-6"
               >
                 <img
-                  class="rounded-full w-20 h-20 ring-4 ring-opacity-20 ring-gray-200"
-                  src="https://randomuser.me/api/portraits/women/79.jpg"
-                  alt="Dr. Jessica James"
+                  class="rounded-full size-14 ring-4 ring-opacity-20 ring-gray-200"
+                  src="../assets/images/profile.png"
+                  :alt="user.name"
                 />
 
                 <div class="ml-5">

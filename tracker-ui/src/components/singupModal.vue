@@ -18,7 +18,7 @@
           </button>
 
           <!-- SLOT -->
-          <div class="pb-2 text-center ">
+          <div class="pb-2 text-center">
             <h6 class="text-xl">Create Your Account</h6>
           </div>
           <div class="bg-[#1796d5] p-4 rounded-md flex-col">
@@ -50,12 +50,11 @@
               class="my-2 mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md"
             >
               <div>
-                <button
+                <font-awesome-icon
                   @click="togglePasswordVisibility"
-                  class="flex items-center bg-gray-400 rounded-l-md border border-white justify-center w-12 h-12 text-white"
-                >
-                  {{ passwordVisible ? "Hide" : "Show" }}
-                </button>
+                  class="flex items-center justify-center w-12 h-12 text-white"
+                  :icon="passwordVisible ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                />
               </div>
 
               <div class="w-full">
