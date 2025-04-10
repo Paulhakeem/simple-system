@@ -47,7 +47,7 @@
                     /></span>
                     {{ shop.name }}
                   </div>
-                  <span
+                  <span @click="deleteShop(shop._id)"
                     ><font-awesome-icon
                       :icon="['fas', 'trash']"
                       class="text-red-500 ml-8 text-sm cursor-pointer"
@@ -70,6 +70,7 @@
 <script setup>
 import { useUserStore } from "../../store/user";
 import { useShopStore } from "../../store/shops";
+import { useDeleteStore } from "../../store/delete";
 defineEmits(["close-modal"]);
 defineProps({
   modalActive: {
@@ -80,4 +81,5 @@ defineProps({
 
 const { user } = useUserStore();
 const { shops } = useShopStore();
+const { deleteShop } = useDeleteStore();
 </script>

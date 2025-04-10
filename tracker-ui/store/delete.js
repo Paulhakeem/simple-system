@@ -1,9 +1,11 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { useTransStore } from "./transaction";
+import { useShopStore } from "./shops";
 
 export const useDeleteStore = defineStore("delete", () => {
   const { statments } = useTransStore();
+  const {shops}=useShopStore()
 
   const deleteTrans = async (id) => {
     try {
@@ -18,5 +20,18 @@ export const useDeleteStore = defineStore("delete", () => {
     }
   };
 
-  return { deleteTrans };
+  const deleteShop = async (id) => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/delete-shop/${id}`
+      );
+      if (Array.isArray(shops.value)) {
+        shops.value = shops.value.filter((t) => t._id !== id);
+      }
+    } catch (error) {
+      console.error("Delete failed:", error);
+    }
+  };
+
+  return { deleteTrans, deleteShop };
 });

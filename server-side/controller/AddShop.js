@@ -43,3 +43,16 @@ exports.getShops = async (req, res) => {
     });
   }
 };
+
+exports.deleteShop = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const removeShop = await Shops.findByIdAndDelete(id);
+    if (!removeShop) {
+      return res.status(404).json({ message: "Shop not found" });
+    }
+    res.status(200).json({ message: "Shop deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
