@@ -28,6 +28,7 @@ export const useDeleteStore = defineStore("delete", () => {
       if (Array.isArray(shops.value)) {
         shops.value = shops.value.filter((t) => t._id !== id);
       }
+      
     } catch (error) {
       console.error("Delete failed:", error);
     }

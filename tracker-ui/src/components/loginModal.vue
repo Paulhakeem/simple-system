@@ -2,7 +2,7 @@
   <transition name="modal-outer">
     <div
       v-show="loginActive"
-      class="absolute z-50 bg-black bg-opacity-0 w-full h-screen top-0 left-0 bg-opacity-30 flex justify-center"
+      class="absolute z-50 w-full h-screen top-0 left-0 bg-opacity-30 flex justify-center"
     >
       <transition name="modal-inner">
         <div
@@ -13,13 +13,15 @@
             <font-awesome-icon
               @click="$emit('close-login')"
               :icon="['fas', 'circle-xmark']"
-              class="text-lg text-[#1796d5] cursor-pointer text-right flex justify-end p-2"
+              class="text-lg text-gray-500 cursor-pointer text-right flex justify-end p-2"
             />
           </button>
 
           <!-- SLOT -->
-          <slot>
-            <div class="bg-gray-500 p-4 rounded-md">
+          <div class="pb-2 text-center ">
+            <h6 class="text-xl">Login To Your Account</h6>
+          </div>
+            <div class="bg-[#1796d5] p-4 rounded-md">
               <!-- component -->
               <div
                 class="my-2 mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md"
@@ -71,7 +73,6 @@
                 </button>
               </div>
             </div>
-          </slot>
         </div>
       </transition>
     </div>

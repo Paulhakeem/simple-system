@@ -2,6 +2,9 @@
   <div class="w-full px-4 mx-auto">
     <div class="rounded-t mb-0 px-4 py-3 border-0">
       <div class="flex flex-wrap items-center">
+        <!-- filter -->
+        <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" class="text-[#1796d5]"/>
+        <!--  -->
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
           <h3 class="font-semibold text-base text-blueGray-700">
             Business Name
@@ -24,7 +27,6 @@
             @blur="hideInput"
           />
         </div>
-
       </div>
     </div>
 
