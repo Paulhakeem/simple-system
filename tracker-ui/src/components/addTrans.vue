@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute p-4 bg-gray-500 duration-300 transition-opacity w-64 rounded-md"
+    class="absolute p-4 bg-gray-500 duration-300 transition-opacity w-64 rounded-md z-50"
   >
     <label class="text-gray-200 text-sm">Item Name</label>
     <div class="relative space-y-4">

@@ -18,7 +18,7 @@
               @click="toggleInput"
               class="bg-[#1796d5] text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
             >
-              Add
+            {{ showInput? "close": "Add"}}
             </button>
           </div>
           <addTrans

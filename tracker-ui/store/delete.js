@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 import axios from "axios";
 import { useTransStore } from "./transaction";
 import { useShopStore } from "./shops";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css'
 
 export const useDeleteStore = defineStore("delete", () => {
   const { statments } = useTransStore();
@@ -15,6 +17,7 @@ export const useDeleteStore = defineStore("delete", () => {
       if (Array.isArray(statments.value)) {
         statments.value = statments.value.filter((s) => s._id !== id);
       }
+      toast.success('Transaction deleted successfully!')
     } catch (error) {
       console.error("Delete failed:", error);
     }
@@ -28,9 +31,9 @@ export const useDeleteStore = defineStore("delete", () => {
       if (Array.isArray(shops.value)) {
         shops.value = shops.value.filter((t) => t._id !== id);
       }
-      
+      toast.success('Shop deleted successfully!')
     } catch (error) {
-      console.error("Delete failed:", error);
+      toast.error(error.response.data.message)
     }
   };
 

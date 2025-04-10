@@ -76,7 +76,7 @@
             >
               <font-awesome-icon
                 @click="openMenu"
-                :icon="['fas', 'caret-down']"
+                :icon="['fas', 'bars']"
                 class="text-xl text-[#1796d5] cursor-pointer active:text-green-500"
               />
             </span>
