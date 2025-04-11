@@ -2,7 +2,7 @@ const Transactions = require("../model/transaction");
 
 // create transaction
 exports.createtransaction = async (req, res, next) => {
-  const { name, amount } = req.body;
+  const { name, amount} = req.body;
 
   if (!name || !amount) {
     res.status(400).json({

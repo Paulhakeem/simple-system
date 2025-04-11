@@ -9,7 +9,7 @@
           <span
             class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
           >
-          <font-awesome-icon :icon="['fas', 'chevron-down']" />
+            <font-awesome-icon :icon="['fas', 'chevron-down']" />
           </span>
         </ListboxButton>
 
@@ -45,7 +45,11 @@
                   v-if="selected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3 text-[#1796d5]"
                 >
-                <font-awesome-icon :icon="['fas', 'check']" class="h-5 w-5" aria-hidden="true"/>
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                  />
                 </span>
               </li>
             </ListboxOption>
@@ -67,12 +71,10 @@ import {
 } from "@headlessui/vue";
 
 const people = [
-  { name: "Wade Cooper" },
-  { name: "Arlene Mccoy" },
-  { name: "Devon Webb" },
-  { name: "Tom Cook" },
-  { name: "Tanya Fox" },
-  { name: "Hellen Schmidt" },
+  { name: "All" },
+  { name: "Filter By Expenses" },
+  { name: "Filter By Income" },
+  { name: "filter By Date" },
 ];
 const selectedPerson = ref(people[0]);
 </script>
