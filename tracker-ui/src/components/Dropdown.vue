@@ -1,60 +1,49 @@
 <template>
-  <transition
-    enter-active-class="transition ease-out duration-100"
-    enter-from-class="transform opacity-0 scale-95"
-    enter-to-class="transform opacity-100 scale-100"
-    leave-active-class="transition ease-in duration-75"
-    leave-from-class="transform opacity-100 scale-100"
-    leave-to-class="transform opacity-0 scale-95"
+  <div
+    class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 focus:outline-none"
   >
-    <div class="bg-[#1796d5] mt-[10em] rounded-md top-0 bottom-5">
-      <slot/>
-      <form class="relative">
-        <input
-          v-model="name"
-          type="text"
-          placeholder="Add Category.."
-          class="mx-2 mt-5 pl-2 p-1.5 outline-none border border-gray-200 text-gray-200 text-sm font-light"
-        />
-        <font-awesome-icon
-          @click="add"
-          :icon="['fas', 'square-plus']"
-          class="absolute end-2.5 bottom-2.5 text-gray-200 cursor-pointer text-2xl items-center"
-        />
-      </form>
-      <div v-if="shops.length == 0">
-        <div class="flex items-center justify-center mt-4 mx-auto">
-          <div
-            class="border-2 border-gray-200 border-dotted rounded-full size-8 animate-spin"
-          ></div>
-          <p class="text-gray-200 p-4 text-center italic">Fetching Data...</p>
+    <div class="relative inline-block text-left">
+      <div class="divide-y divide-gray-200 w-full">
+        <div class="px-1 py-2">
+          <button
+            class="group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer hover:text-[#1796d5]"
+          >
+          <font-awesome-icon :icon="['fas', 'house']" class="mr-2 h-5 w-5 text-[#1796d5]"/>
+            Home
+          </button>
+          <button
+            class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
+          >
+          <font-awesome-icon :icon="['fas', 'cart-shopping']" class="mr-2 h-5 w-5 text-[#1796d5]"/>
+            Manage Shops
+            <font-awesome-icon :icon="['fas', 'chevron-down']" class="ml-2 h-5 w-5 text-[#1796d5]"/>
+          </button>
+          <button
+            class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
+          >
+          <font-awesome-icon :icon="['fas', 'chart-simple']" class="mr-2 h-5 w-5 text-[#1796d5]"/>
+            Statics
+          </button>
+          <button
+            class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
+          >
+          <font-awesome-icon :icon="['fas', 'user']" class="mr-2 h-5 w-5 text-[#1796d5]"/>
+            Profile
+          </button>
+          <button
+            class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
+          >
+          <font-awesome-icon :icon="['fas', 'right-from-bracket']" class="mr-2 h-5 w-5 text-[#1796d5]"/>
+            Logout
+          </button>
         </div>
       </div>
-      <div v-for="shop in shops" :key="shop._id">
-        <ul class="py-1">
-          <li
-            class="px-3 py-2 cursor-pointer border-b border-b-gray-200 hover:bg-gray-200 w-full text-gray-800 first-letter:uppercase"
-          >
-            {{ shop.name }}
-          </li>
-        </ul>
-      </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script setup>
 import { useShopStore } from "../../store/shops";
-import { useUserStore } from "../../store/user";
-import { ref } from "vue";
 
-const { shops, addShop } = useShopStore();
-const { user } = useUserStore();
-const name = ref("");
-
-const add = async () => {
-  await addShop(name.value, user._id);
-
-  name.value = "";
-};
+const { shops } = useShopStore();
 </script>

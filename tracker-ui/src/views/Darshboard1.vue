@@ -76,17 +76,20 @@
             >
               <font-awesome-icon
                 @click="openMenu"
-                :icon="['fas', 'bars']"
+                :icon="isOpen ? 'fa-solid fa-circle-xmark' : 'fa-solid fa-bars'"
                 class="text-xl text-[#1796d5] cursor-pointer active:text-green-500"
               />
             </span>
-            <Dropdown v-if="isOpen">
-              <font-awesome-icon
-                :icon="['fas', 'circle-xmark']"
-                class="text-gray-200 pl-4 pt-2 cursor-pointer"
-                @click="openMenu"
-              />
-            </Dropdown>
+            <transition
+              enter-active-class="transition duration-100 ease-out"
+              enter-from-class="transform scale-95 opacity-0"
+              enter-to-class="transform scale-100 opacity-100"
+              leave-active-class="transition duration-100 ease-in"
+              leave-from-class="transform scale-100 opacity-100"
+              leave-to-class="transform scale-95 opacity-0"
+            >
+              <Dropdown v-if="isOpen"/>
+            </transition>
           </div>
         </div>
 
