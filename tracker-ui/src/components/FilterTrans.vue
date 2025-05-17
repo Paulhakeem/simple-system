@@ -5,7 +5,7 @@
         <ListboxButton
           class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
         >
-          <span class="block truncate">{{ selectedPerson.name }}</span>
+          <span class="block truncate">{{ catergorySelected }}</span>
           <span
             class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
           >
@@ -22,10 +22,9 @@
             class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm"
           >
             <ListboxOption
-              v-slot="{ active, selected }"
-              v-for="person in people"
-              :key="person.name"
-              :value="person"
+              v-for="catergory in Object.keys(categories)"
+              :key="catergory"
+              v-slot="{active, selected }"
               as="template"
             >
               <li
@@ -39,7 +38,7 @@
                     selected ? 'font-medium' : 'font-normal',
                     'block truncate',
                   ]"
-                  >{{ person.name }}</span
+                  >{{ catergory }}</span
                 >
                 <span
                   v-if="selected"
@@ -69,12 +68,9 @@ import {
   ListboxOptions,
   ListboxOption,
 } from "@headlessui/vue";
+import { useTransStore } from "../../store/transaction";
 
-const people = [
-  { name: "All" },
-  { name: "Filter By Expenses" },
-  { name: "Filter By Income" },
-  { name: "filter By Date" },
-];
-const selectedPerson = ref(people[0]);
+const { categories } = useTransStore();
+
+const catergorySelected = ref(categories);
 </script>

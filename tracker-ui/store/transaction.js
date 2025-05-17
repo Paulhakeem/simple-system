@@ -8,6 +8,12 @@ export const useTransStore = defineStore("transactions", () => {
   const filterExp = ref([]);
   const filterInc = ref([]);
 
+  const categories = ref({
+    statements: [{}],
+    filterExp: [{}],
+    filterInc: [{}],
+  });
+
   const { user } = useUserStore();
 
   const createTransaction = async (name, amount, date, userId) => {
@@ -106,5 +112,6 @@ export const useTransStore = defineStore("transactions", () => {
     getExp,
     getIncome,
     filterInc,
+    categories  
   };
 });
