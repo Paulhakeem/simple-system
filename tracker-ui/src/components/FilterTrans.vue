@@ -41,7 +41,6 @@
                   >{{ catergory }}</span
                 >
                 <span
-                  v-if="selected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3 text-[#1796d5]"
                 >
                   <font-awesome-icon
