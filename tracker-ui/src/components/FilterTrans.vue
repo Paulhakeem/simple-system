@@ -71,5 +71,5 @@ import { useTransStore } from "../../store/transaction";
 
 const { categories } = useTransStore();
 
-const catergorySelected = ref(categories);
+const catergorySelected = ref(categories[1]);
 </script>
