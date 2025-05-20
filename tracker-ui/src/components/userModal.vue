@@ -37,6 +37,8 @@
                   <font-awesome-icon :icon="['fas', 'plus']" />
                   add shop branch
                 </button>
+                <!-- input field -->
+                 <!-- end of input -->
                 <p class="text-xs text-gray-500 font-medium">Manage Shops</p>
               </div>
               <ul v-for="shop in shops" :key="shop._id" class="px-8 relative">
