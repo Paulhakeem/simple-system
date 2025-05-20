@@ -98,7 +98,6 @@
 import DarshbordInfo from "@/components/DarshbordInfo.vue";
 import Dropdown from "@/components/Dropdown.vue";
 import { useUserStore } from "../../store/user";
-import userModal from "@/components/userModal.vue";
 import { ref } from "vue";
 
 const { user } = useUserStore();
