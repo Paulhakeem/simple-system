@@ -30,23 +30,32 @@
           </button>
           <!--  -->
           <div class="pl-4" v-if="dropdown">
-            <div v-if="shops.length === 0" class="text-sm text-red-700 animate-pulse">
-             <div class="flex items-center">
-              <font-awesome-icon
-                :icon="['fas', 'circle-exclamation']"
-                class="mr-2 h-5 w-5 text-red-700"
-              />
-              <p>No Shops Added!</p>
-             </div>
+            <div
+              v-if="shops.length === 0"
+              class="text-sm text-red-700 animate-pulse"
+            >
+              <div class="flex items-center">
+                <font-awesome-icon
+                  :icon="['fas', 'circle-exclamation']"
+                  class="mr-2 h-5 w-5 text-red-700"
+                />
+                <p>No Shops Added!</p>
+              </div>
             </div>
-            <div v-else class="divide-y divide-gray-200 w-full">
-              <div class="">
+            <div v-else class="w-full">
+              <div class="divide-y divide-gray-200">
                 <button
                   v-for="shop in shops"
                   :key="shop.id"
                   class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer text-[#1796d5]"
                 >
-                  shop 1
+                  <div v-if="user._id === shop.userId">
+                    <font-awesome-icon
+                      :icon="['fas', 'circle-check']"
+                      class="mr-2 h-5 w-5 text-[#1796d5]"
+                    />
+                    {{ shop.name }}
+                  </div>
                 </button>
               </div>
             </div>
@@ -88,9 +97,11 @@
 
 <script setup>
 import { useShopStore } from "../../store/shops";
+import { useUserStore } from "../../store/user";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ref } from "vue";
 const { shops } = useShopStore();
+const { user } = useUserStore();
 
 const dropdown = ref(false);
 

@@ -5,6 +5,7 @@
     <label class="text-gray-200 text-sm">Item Name</label>
     <div class="relative space-y-4">
       <input
+        @keyup.enter="addTrans"
         v-model="name"
         type="text"
         placeholder="Enter item name..."
@@ -16,6 +17,7 @@
       >
       <input
         v-model="amount"
+        @keyup.enter="addTrans"
         type="number"
         placeholder="Enter amount..."
         class="border rounded p-2 focus:outline-none text-gray-300"
