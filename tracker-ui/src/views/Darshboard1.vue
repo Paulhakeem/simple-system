@@ -45,8 +45,7 @@
           />
         </a>
         <!-- user profile -->
-        <a
-          @click="toggleModal"
+        <RouterLink to="/user-dashboard"
           class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-auto rounded hover:bg-gray-800"
           href="#"
         >
@@ -54,14 +53,9 @@
             :icon="['fas', 'user']"
             class="text-xl text-[#1796d5]"
           />
-        </a>
+        </RouterLink>
         <p class="font-medium text-gray-300">{{ user.name }}</p>
       </div>
-
-      <userModal
-        :modalActive="modalActive"
-        @close-modal="toggleModal"
-      ></userModal>
       <!-- end user -->
       <!-- HEADER -->
       <div class="flex flex-col flex-grow">
@@ -115,8 +109,4 @@ const openMenu = () => {
   isOpen.value = !isOpen.value;
 };
 
-const modalActive = ref(null);
-const toggleModal = () => {
-  modalActive.value = !modalActive.value;
-};
 </script>

@@ -1,15 +1,14 @@
 <template>
   <transition name="modal-outer">
     <div
-      v-show="modalActive"
       class="absolute w-full z-50 h-screen top-0 left-0 flex justify-center px-8"
     >
       <transition name="modal-inner">
-        <div v-if="modalActive" class="p-4 self-start">
+        <div class="p-4 self-start">
           <!-- inspiration from UI Design Daily -->
           <div class="grid min-h-screen place-content-center">
             <div
-              class="bg-white p-4 shadow-lg rounded-xl max-w-md mx-auto relative"
+              class="bg-white p-4 shadow-lg rounded-xl max-w-xl mx-auto relative"
             >
               <header
                 class="bg-[#1796d5] transform flex items-center mb-10 py-8 px-6"
@@ -80,11 +79,6 @@
                   /></span>
                 </li>
               </ul>
-              <span
-                @click="$emit('close-modal')"
-                class="absolute text-[#1796d5] right-5 bottom-0 cursor-pointer"
-                ><font-awesome-icon :icon="['fas', 'circle-xmark']" />
-              </span>
             </div>
           </div>
         </div>
@@ -98,13 +92,6 @@ import { useUserStore } from "../../store/user";
 import { useShopStore } from "../../store/shops";
 import { useDeleteStore } from "../../store/delete";
 import { ref } from "vue";
-defineEmits(["close-modal"]);
-defineProps({
-  modalActive: {
-    type: Boolean,
-    default: false,
-  },
-});
 
 const { user } = useUserStore();
 const { shops, addShop } = useShopStore();

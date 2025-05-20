@@ -71,15 +71,18 @@
             />
             Statics
           </button>
-          <button
-            class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
-          >
-            <font-awesome-icon
-              :icon="['fas', 'user']"
-              class="mr-2 h-5 w-5 text-[#1796d5]"
-            />
-            Profile
-          </button>
+          <RouterLink to="/user-dashboard">
+            <button
+              class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
+            >
+              <font-awesome-icon
+                :icon="['fas', 'user']"
+                class="mr-2 h-5 w-5 text-[#1796d5]"
+              />
+              Profile
+            </button>
+          </RouterLink>
+
           <button
             class="group flex w-full items-center rounded-md px-2 py-2 text-sm hover:text-[#1796d5] cursor-pointer"
           >
@@ -96,6 +99,7 @@
 </template>
 
 <script setup>
+import { RouterLink } from "vue-router";
 import { useShopStore } from "../../store/shops";
 import { useUserStore } from "../../store/user";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
