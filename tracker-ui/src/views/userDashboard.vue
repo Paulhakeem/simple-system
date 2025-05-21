@@ -88,7 +88,7 @@
 <template>
   <div>
     <!-- component -->
-    <div class="font-sans bg-grey-lighter flex flex-col min-h-screen w-full">
+    <div class="font-sans bg-gray-900 flex flex-col min-h-screen w-full">
       <div>
         <div class="bg-[#1796d5]">
           <div class="container mx-auto px-4">
@@ -111,7 +111,7 @@
             </div>
           </div>
         </div>
-        <div class="hidden bg-blue-dark md:block md:border-b">
+        <div class="hidden bg-blue-dark md:block">
           <div class="container mx-auto px-4">
             <div class="md:flex">
               <div class="flex -mb-px mr-8">
@@ -119,16 +119,10 @@
                   href="#"
                   class="no-underline text-white md:text-blue-dark flex items-center py-4 border-b border-blue-dark"
                 >
-                  <svg
+                  <font-awesome-icon
+                    :icon="['fas', 'house']"
                     class="h-6 w-6 fill-current mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M3.889 3h6.222a.9.9 0 0 1 .889.91v8.18a.9.9 0 0 1-.889.91H3.89A.9.9 0 0 1 3 12.09V3.91A.9.9 0 0 1 3.889 3zM3.889 15h6.222c.491 0 .889.384.889.857v4.286c0 .473-.398.857-.889.857H3.89C3.398 21 3 20.616 3 20.143v-4.286c0-.473.398-.857.889-.857zM13.889 11h6.222a.9.9 0 0 1 .889.91v8.18a.9.9 0 0 1-.889.91H13.89a.9.9 0 0 1-.889-.91v-8.18a.9.9 0 0 1 .889-.91zM13.889 3h6.222c.491 0 .889.384.889.857v4.286c0 .473-.398.857-.889.857H13.89C13.398 9 13 8.616 13 8.143V3.857c0-.473.398-.857.889-.857z"
-                    />
-                  </svg>
+                  />
                   Dashboard
                 </a>
               </div>
@@ -137,17 +131,11 @@
                   href="#"
                   class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
                 >
-                  <svg
+                  <font-awesome-icon
+                    :icon="['fas', 'chart-simple']"
                     class="h-6 w-6 fill-current mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M8 7h10V5l4 3.5-4 3.5v-2H8V7zm-6 8.5L6 12v2h10v3H6v2l-4-3.5z"
-                      fill-rule="nonzero"
-                    />
-                  </svg>
-                  Buy/Sell
+                  />
+                  Income
                 </a>
               </div>
               <div class="flex -mb-px mr-8">
@@ -155,17 +143,11 @@
                   href="#"
                   class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
                 >
-                  <svg
+                  <font-awesome-icon
+                    :icon="['fas', 'square-poll-horizontal']"
                     class="h-6 w-6 fill-current mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M18 8H5.5v-.5l11-.88v.88H18V6c0-1.1-.891-1.872-1.979-1.717L5.98 5.717C4.891 5.873 4 6.9 4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zm-1.5 7.006a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001z"
-                      fill-rule="nonzero"
-                    />
-                  </svg>
-                  Accounts
+                  />
+                  Expenses
                 </a>
               </div>
               <div class="flex -mb-px mr-8">
@@ -173,34 +155,10 @@
                   href="#"
                   class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
                 >
-                  <svg
+                  <font-awesome-icon
+                    :icon="['fas', 'gear']"
                     class="h-6 w-6 fill-current mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M11 12h2v2h9s-.149-4.459-.2-5.854C21.75 6.82 21.275 6 19.8 6h-3.208l-1.197-2.256C15.064 3.121 14.951 3 14.216 3H9.783c-.735 0-.847.121-1.179.744-.165.311-.7 1.318-1.196 2.256H4.199c-1.476 0-1.945.82-2 2.146C2.145 9.473 2 14 2 14h9v-2zM9.649 4.916c.23-.432.308-.516.817-.516h3.067c.509 0 .588.084.816.516L14.924 6h-5.85l.575-1.084zM13 17h-2v-2H2.5s.124 1.797.199 3.322c.031.633.218 1.678 1.8 1.678H19.5c1.582 0 1.765-1.047 1.8-1.678.087-1.568.2-3.322.2-3.322H13v2z"
-                      fill-rule="nonzero"
-                    />
-                  </svg>
-                  Tools
-                </a>
-              </div>
-              <div class="flex -mb-px">
-                <a
-                  href="#"
-                  class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
-                >
-                  <svg
-                    class="h-6 w-6 fill-current mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M18.783 12c0-1.049.646-1.875 1.617-2.443a8.932 8.932 0 0 0-.692-1.672c-1.089.285-1.97-.141-2.711-.883-.741-.74-.968-1.621-.683-2.711a8.732 8.732 0 0 0-1.672-.691c-.568.97-1.595 1.615-2.642 1.615-1.048 0-2.074-.645-2.643-1.615-.58.172-1.14.403-1.671.691.285 1.09.059 1.971-.684 2.711-.74.742-1.621 1.168-2.711.883A8.797 8.797 0 0 0 3.6 9.557c.97.568 1.615 1.394 1.615 2.443 0 1.047-.645 2.074-1.615 2.643.173.58.404 1.14.691 1.672 1.09-.285 1.971-.059 2.711.682.741.742.969 1.623.684 2.711.532.288 1.092.52 1.672.693.568-.973 1.595-1.617 2.643-1.617 1.047 0 2.074.645 2.643 1.617a8.963 8.963 0 0 0 1.672-.693c-.285-1.088-.059-1.969.683-2.711.741-.74 1.622-1.166 2.711-.883.287-.532.52-1.092.692-1.672-.973-.569-1.619-1.395-1.619-2.442zM12 15.652a3.653 3.653 0 1 1 0-7.306 3.653 3.653 0 0 1 0 7.306z"
-                      fill-rule="nonzero"
-                    />
-                  </svg>
+                  />
                   Settings
                 </a>
               </div>
@@ -210,73 +168,8 @@
       </div>
       <div class="flex-grow container mx-auto sm:px-4 pt-6 pb-8">
         <div
-          class="bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6"
+          class="bg-gray-300 border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6"
         >
-          <div class="border-b px-6">
-            <div class="flex justify-between -mb-px">
-              <div class="lg:hidden text-blue-dark py-4 text-lg">
-                Price Charts
-              </div>
-              <div class="hidden lg:flex">
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-6"
-                >
-                  Bitcoin &middot; CA$21,404.74
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-6"
-                >
-                  Ethereum &middot; CA$884.80
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark"
-                >
-                  Litecoin &middot; CA$358.24
-                </button>
-              </div>
-              <div class="flex text-sm">
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3"
-                >
-                  1M
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3"
-                >
-                  1D
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3"
-                >
-                  1W
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-3"
-                >
-                  1M
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3"
-                >
-                  1Y
-                </button>
-                <button
-                  type="button"
-                  class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark"
-                >
-                  ALL
-                </button>
-              </div>
-            </div>
-          </div>
           <div class="flex items-center px-6 lg:hidden">
             <div class="flex-grow flex-no-shrink py-6">
               <div class="text-grey-darker mb-2">
@@ -314,42 +207,26 @@
           <div class="hidden lg:flex">
             <div class="w-1/3 text-center py-8">
               <div class="border-r">
-                <div class="text-grey-darker mb-2">
-                  <span class="text-3xl align-top">CA$</span>
-                  <span class="text-5xl">21,404</span>
-                  <span class="text-3xl align-top">.74</span>
+                <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
+                  Total Income
                 </div>
-                <div class="text-sm uppercase text-grey tracking-wide">
-                  Bitcoin Price
-                </div>
+                <span class="font-bold text-2xl text-green-500"> Ksh100,000 </span>
               </div>
             </div>
             <div class="w-1/3 text-center py-8">
               <div class="border-r">
-                <div class="text-grey-darker mb-2">
-                  <span class="text-3xl align-top"
-                    ><span class="text-green align-top">+</span>CA$</span
-                  >
-                  <span class="text-5xl">12,998</span>
-                  <span class="text-3xl align-top">.48</span>
+                <div class="text-sm uppercase text-gray-600 font-semibold  tracking-wide">
+                 This month (Income)
                 </div>
-                <div class="text-sm uppercase text-grey tracking-wide">
-                  Since last month (CAD)
-                </div>
+                <span class="font-bold text-2xl text-green-500"> Ksh60,000 </span>
               </div>
             </div>
             <div class="w-1/3 text-center py-8">
               <div>
-                <div class="text-grey-darker mb-2">
-                  <span class="text-3xl align-top"
-                    ><span class="text-green align-top">+</span></span
-                  >
-                  <span class="text-5xl">154.47</span>
-                  <span class="text-3xl align-top">%</span>
+                <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
+                  Last month (%)
                 </div>
-                <div class="text-sm uppercase text-grey tracking-wide">
-                  Since last month (%)
-                </div>
+                <span class="font-bold text-2xl text-green-500"> Ksh40,000 </span>
               </div>
             </div>
           </div>
@@ -384,7 +261,7 @@
                 class="flex-grow flex px-6 py-6 text-grey-darker items-center border-b -mx-4"
               >
                 <div class="w-2/5 xl:w-1/4 px-4 flex items-center">
-                  <div class="rounded-full bg-orange inline-flex mr-3">
+                  <div class="rounded-full bg-orange-400 inline-flex mr-3">
                     <svg
                       class="fill-current text-white h-8 w-8 block"
                       xmlns="http://www.w3.org/2000/svg"
