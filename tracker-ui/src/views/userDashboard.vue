@@ -108,7 +108,7 @@
             <div class="w-1/3 text-center py-8">
               <div>
                 <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
-                   (%)
+                  Total (%)
                 </div>
                 <span class="font-bold text-2xl text-green-500"> 70% </span>
               </div>

@@ -3,7 +3,10 @@
     <div
       class="flex-grow flex flex-col bg-gray-200 border-t border-b sm:rounded sm:border shadow overflow-hidden"
     >
-      <div class="flex justify-between px-6 mb-px pt-3">
+      <h3 class="px-6 py-4 font-semibold text-lg text-[#1796d5]">
+        Manage Shops
+      </h3>
+      <div class="flex justify-between px-6 mb-px pb-2">
         <form class="flex gap-2">
           <input
             type="text"
@@ -22,25 +25,18 @@
         </form>
         <!-- END OF FORM -->
         <div class="flex">
-          <p class="text-xl text-gray-500 mt-2">Percentage(%)</p>
+          <p class="text-lg text-gray-500 mt-2 font-normal">Percentage(%)</p>
         </div>
       </div>
-      <div v-for="shop in shops" :key="shop.id">
-        <p class="text-gray-400">{{ shop.name }}</p>
-        <!-- <div v-if="user._id === shop.userId"
-          class="flex-grow flex px-6 py-2 text-grey-darker items-center border-b mx-4"
-        >
-          <div class="w-2/5 xl:w-1/4 px-4 flex items-center">
-            <div class="rounded-full bg-orange-400 inline-flex mr-3">
-              <font-awesome-icon
-                icon="fa-solid fa-circle"
-                class="text-orange-400 text-lg"
-              />
-            </div>
-            <span class="text-lg">{{ shop.name }}</span>
-          </div>
-        </div> -->
+      <div class="flex justify-between divide-y divide-gray-200 px-6 mt-6">
+        <p class="text-gray-600">Shop One</p>
+        <div class="flex gap-4">
+          <p class="text-gray-500 text-green-500">Ksh 100,000</p>
+          <p class="text-gray-500 text-red-500">Ksh 100,000</p>
+          <p class="text-gray-500">Ksh 60,000</p>
+        </div>
       </div>
+
       <!--  -->
     </div>
   </div>
