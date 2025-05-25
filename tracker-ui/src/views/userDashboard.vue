@@ -108,7 +108,7 @@
             <div class="w-1/3 text-center py-8">
               <div>
                 <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
-                  Total (%)
+                   TOTAL PERCENTAGE(%)
                 </div>
                 <span class="font-bold text-2xl text-green-500"> 70% </span>
               </div>
@@ -144,7 +144,7 @@
                      Import all of your transactions before 24hrs to avaoid ovaloading of data.
                       <br />
                       <span class="text-red-500 font-semibold">
-                        Note: You can only import 1000 transactions at a time from each shop.
+                        Note: You can only import 1000 transactions at a time.
                       </span>
                     </p>
                   </div>

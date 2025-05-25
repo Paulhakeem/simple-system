@@ -78,7 +78,7 @@
         </td>
         <td>
           <span
-            @click="deleteTrans(data._id)"
+            @click="eraiseTrans(data._id)"
             class="flex items-center text-red-500 cursor-pointer"
           >
             <font-awesome-icon :icon="['fas', 'circle-xmark']" />
@@ -100,6 +100,11 @@ const transaction = useTransStore();
 const { getUser } = useUserStore();
 const { deleteTrans } = useDeleteStore();
 
+const eraiseTrans = async (transId) => {
+  if (confirm("Are you sure you want to delete this transaction?")) {
+    await deleteTrans(transId)
+  }
+};
 onMounted(async () => {
   await getUser();
 });

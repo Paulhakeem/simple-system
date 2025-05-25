@@ -28,12 +28,38 @@
           <p class="text-lg text-gray-500 mt-2 font-normal">Percentage(%)</p>
         </div>
       </div>
-      <div class="flex justify-between divide-y divide-gray-200 px-6 mt-6">
-        <p class="text-gray-600">Shop One</p>
-        <div class="flex gap-4">
-          <p class="text-gray-500 text-green-500">Ksh 100,000</p>
-          <p class="text-gray-500 text-red-500">Ksh 100,000</p>
-          <p class="text-gray-500">Ksh 60,000</p>
+      <!-- SHOP LIST -->
+
+      <div v-if="shops.length === 0">
+        <div
+          class="text-center text-red-700 animate-pulse px-6 justify-center my-10"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'circle-exclamation']"
+            class="mr-2 h-5 w-5 text-red-700 text-6xl"
+          />
+          <p class="text-red-700 text-xl">No Shops Added!</p>
+        </div>
+      </div>
+      <div>
+        <div
+          v-for="shop in shops"
+          :key="shop.id"
+          class="flex justify-between px-6 mt-6 bg-gray-100 p-1.5 px-1.4"
+        >
+          <div class="flex gap-2 items-center">
+            <font-awesome-icon
+              :icon="['fas', 'xmark']"
+              class="text-red-500 cursor-pointer"
+              @click="eraiseShop(shop._id)"
+            />
+            <p class="text-gray-600">{{ shop.name }}</p>
+          </div>
+          <div class="flex gap-4">
+            <p class="text-gray-500 text-green-500">Ksh 100,000</p>
+            <p class="text-gray-500 text-red-500">Ksh 100,000</p>
+            <p class="text-gray-500">Ksh 60,000</p>
+          </div>
         </div>
       </div>
 
@@ -53,6 +79,12 @@ const { shops, addShop } = useShopStore();
 const { deleteShop } = useDeleteStore();
 
 const shopName = ref("");
+
+const eraiseShop = async (shopId) => {
+  if (confirm("Are you sure you want to delete this shop?")) {
+    await deleteShop(shopId)
+  }
+};
 
 const createShop = async () => {
   if (shopName.value === "") {
