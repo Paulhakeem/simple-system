@@ -56,17 +56,19 @@
             <p class="text-gray-600">{{ shop.name }}</p>
           </div>
           <div class="flex justify-between gap-2 w-64 items-center">
-            <div class="w-full bg-gray-200 rounded-full h-2 ">
+            <div class="w-full bg-gray-200 rounded-full h-4">
               <div
-                class="bg-green-500 h-2 text-xs rounded-full transition-all duration-500"
+                class="bg-green-500 h-4 text-xs rounded-full p-0.5 transition-all duration-500 font-medium text-center leading-none"
                 style="width: 20%"
-              >10%</div>
+              >
+                10%
+              </div>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="w-full bg-gray-200 rounded-full h-4">
               <div
-                class="bg-red-500 h-2 rounded-full transition-all duration-500"
-                style="width: 20%"
-              ></div>
+                class="bg-red-500 h-4 text-xs rounded-full p-0.5 transition-all duration-500 font-medium text-center leading-none"
+                style="width: 40%"
+              >20%</div>
             </div>
           </div>
         </div>

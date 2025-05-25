@@ -163,7 +163,7 @@
             <div
               class="text-center md:text-left py-3 md:py-4 border-b md:border-b-0"
             >
-              <a href="#" class="no-underline text-gray-200 mr-4">Home</a>
+              <RouterLink to="/darshboard1" class="no-underline text-gray-200 mr-4">Home</RouterLink>
               <a href="#" class="no-underline text-gray-200"
                 >Legal &amp; Privacy</a
               >
@@ -182,24 +182,9 @@
 
 <script setup>
 import { useUserStore } from "../../store/user";
-import { useShopStore } from "../../store/shops";
-import { useDeleteStore } from "../../store/delete";
 import MobileView from "../components/MobileView.vue";
 import AdminData from "../components/adminData.vue";
-import { ref } from "vue";
 
 const { user } = useUserStore();
-const { shops, addShop } = useShopStore();
-const { deleteShop } = useDeleteStore();
 
-const shopName = ref("");
-
-
-const createShop = async () => {
-  if (shopName.value === "") {
-    return;
-  }
-  await addShop(shopName.value, user._id);
-  shopName.value = "";
-};
 </script>

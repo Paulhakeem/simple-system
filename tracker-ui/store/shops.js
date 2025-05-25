@@ -30,7 +30,7 @@ export const useShopStore = defineStore("shops", () => {
         shops.value = result.data.result
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
   });
 
