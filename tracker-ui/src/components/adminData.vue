@@ -55,10 +55,19 @@
             />
             <p class="text-gray-600">{{ shop.name }}</p>
           </div>
-          <div class="flex gap-4">
-            <p class="text-gray-500 text-green-500">Ksh 100,000</p>
-            <p class="text-gray-500 text-red-500">Ksh 100,000</p>
-            <p class="text-gray-500">Ksh 60,000</p>
+          <div class="flex justify-between gap-2 w-64 items-center">
+            <div class="w-full bg-gray-200 rounded-full h-2 ">
+              <div
+                class="bg-green-500 h-2 text-xs rounded-full transition-all duration-500"
+                style="width: 20%"
+              >10%</div>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div
+                class="bg-red-500 h-2 rounded-full transition-all duration-500"
+                style="width: 20%"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +91,7 @@ const shopName = ref("");
 
 const eraiseShop = async (shopId) => {
   if (confirm("Are you sure you want to delete this shop?")) {
-    await deleteShop(shopId)
+    await deleteShop(shopId);
   }
 };
 
