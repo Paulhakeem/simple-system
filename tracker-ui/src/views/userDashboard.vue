@@ -94,7 +94,7 @@
                 <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
                   Total Income
                 </div>
-                <span class="font-bold text-2xl text-green-500"> Ksh100,000 </span>
+                <span class="font-bold text-2xl text-green-500"> Ksh{{totalAmout}} </span>
               </div>
             </div>
             <div class="w-1/3 text-center py-8">
@@ -102,7 +102,7 @@
                 <div class="text-sm uppercase text-gray-600 font-semibold  tracking-wide">
                  Total Expenses
                 </div>
-                <span class="font-bold text-2xl text-red-500"> Ksh60,000 </span>
+                <span class="font-bold text-2xl text-red-500"> Ksh{{totalExpenses}}</span>
               </div>
             </div>
             <div class="w-1/3 text-center py-8">
@@ -123,7 +123,7 @@
 
 
           <div class="w-full lg:w-1/2 px-4">
-            <div class="bg-white border-t border-b sm:rounded sm:border shadow">
+            <div class="bg-gray-200 border-t border-b sm:rounded sm:border shadow">
               <div class="border-b">
                 <div class="flex justify-between px-6 -mb-px">
                   <h3 class="text-gray-600 py-4 font-normal text-lg">
@@ -184,6 +184,8 @@
 import { useUserStore } from "../../store/user";
 import MobileView from "../components/MobileView.vue";
 import AdminData from "../components/adminData.vue";
+import { useTransStore } from "../../store/transaction";    
+const {totalAmout, totalExpenses} = useTransStore();
 
 const { user } = useUserStore();
 

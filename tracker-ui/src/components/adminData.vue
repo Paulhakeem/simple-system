@@ -83,11 +83,13 @@
 import { useUserStore } from "../../store/user";
 import { useShopStore } from "../../store/shops";
 import { useDeleteStore } from "../../store/delete";
-import { ref } from "vue";
+
+import { ref } from "vue"
 
 const { user } = useUserStore();
 const { shops, addShop } = useShopStore();
 const { deleteShop } = useDeleteStore();
+
 
 const shopName = ref("");
 
