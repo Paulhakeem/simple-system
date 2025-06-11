@@ -14,7 +14,7 @@ export const useShopStore = defineStore("shops", () => {
         userId,
       })
       .then((result) => {
-        shops.value.push(result.data.newShop);
+        shops.value.push(result.data.newShop)
       })
       .catch((err) => {
         console.log(err);

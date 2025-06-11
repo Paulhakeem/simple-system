@@ -108,4 +108,26 @@ const openMenu = () => {
   isOpen.value = !isOpen.value;
 };
 
+const icons = ref([
+  {
+    icon: "fa-solid fa-house",
+    label: "Home",
+    route: "/home"
+  },
+  {
+    icon: "fa-solid fa-circle-plus",
+    label: "Add Category",
+    route: "/add-category"
+  },
+  {
+    icon: "fa-solid fa-square-poll-vertical",
+    label: "Statistics",
+    route: "/statistics"
+  },
+  {
+    icon: "fa-solid fa-user",
+    label: "Profile",
+    route: "/user-dashboard"
+  }
+])
 </script>
