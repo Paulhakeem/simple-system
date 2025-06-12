@@ -14,7 +14,7 @@
         ></span>
 
         <span class="relative block px-8 py-3 bg-[#1A2238] border border-[#1796d5]">
-          <router-link to="/" class="text-gray-200 cursor-pointer">Go Home</router-link>
+          <router-link to="/darshboard1" class="text-gray-200 cursor-pointer">Go Home</router-link>
         </span>
       </a>
     </button>
