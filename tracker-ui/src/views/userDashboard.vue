@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <!-- component -->
@@ -29,53 +27,17 @@
         <div class="hidden bg-blue-dark md:block">
           <div class="container mx-auto px-4">
             <div class="md:flex">
-              <div class="flex -mb-px mr-8">
-                <a
-                  href="#"
-                  class="no-underline text-white md:text-blue-dark flex items-center py-4 border-b border-blue-dark"
+              <div v-for="(menu, index) in tab" :key="index" class="flex -mb-px mr-8">
+                <RouterLink
+                  :to="`/${menu.name.toLowerCase()}`"
+                  class="no-underline text-white md:text-blue-dark flex items-center py-4 hover:border-b transition duration-300 ease-in-out active:border-b active:border-blue-500"
                 >
                   <font-awesome-icon
-                    :icon="['fas', 'house']"
+                    :icon="menu.icon"
                     class="h-6 w-6 fill-current mr-2"
                   />
-                  Dashboard
-                </a>
-              </div>
-              <div class="flex -mb-px mr-8">
-                <a
-                  href="#"
-                  class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
-                >
-                  <font-awesome-icon
-                    :icon="['fas', 'chart-simple']"
-                    class="h-6 w-6 fill-current mr-2"
-                  />
-                  Income
-                </a>
-              </div>
-              <div class="flex -mb-px mr-8">
-                <a
-                  href="#"
-                  class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
-                >
-                  <font-awesome-icon
-                    :icon="['fas', 'square-poll-horizontal']"
-                    class="h-6 w-6 fill-current mr-2"
-                  />
-                  Expenses
-                </a>
-              </div>
-              <div class="flex -mb-px mr-8">
-                <a
-                  href="#"
-                  class="no-underline text-white opacity-50 md:text-grey-dark md:opacity-100 flex items-center py-4 border-b border-transparent hover:opacity-100 md:hover:border-grey-dark"
-                >
-                  <font-awesome-icon
-                    :icon="['fas', 'gear']"
-                    class="h-6 w-6 fill-current mr-2"
-                  />
-                  Settings
-                </a>
+                  {{ menu.name }}
+              </RouterLink>
               </div>
             </div>
           </div>
@@ -85,30 +47,40 @@
         <div
           class="bg-gray-300 border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6"
         >
-        <!-- MOBILE VIEW -->
-        <MobileView/>
+          <!-- MOBILE VIEW -->
+          <MobileView />
           <!-- END OF MOBILE VIEW MENU -->
           <div class="hidden lg:flex">
             <div class="w-1/3 text-center py-8">
               <div class="border-r">
-                <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
+                <div
+                  class="text-sm uppercase text-gray-600 font-semibold tracking-wide"
+                >
                   Total Income
                 </div>
-                <span class="font-bold text-2xl text-green-500"> Ksh{{totalAmout}} </span>
+                <span class="font-bold text-2xl text-green-500">
+                  Ksh{{ totalAmout }}
+                </span>
               </div>
             </div>
             <div class="w-1/3 text-center py-8">
               <div class="border-r">
-                <div class="text-sm uppercase text-gray-600 font-semibold  tracking-wide">
-                 Total Expenses
+                <div
+                  class="text-sm uppercase text-gray-600 font-semibold tracking-wide"
+                >
+                  Total Expenses
                 </div>
-                <span class="font-bold text-2xl text-red-500"> Ksh{{totalExpenses}}</span>
+                <span class="font-bold text-2xl text-red-500">
+                  Ksh{{ totalExpenses }}</span
+                >
               </div>
             </div>
             <div class="w-1/3 text-center py-8">
               <div>
-                <div class="text-sm uppercase text-gray-600 font-semibold tracking-wide">
-                   TOTAL PERCENTAGE(%)
+                <div
+                  class="text-sm uppercase text-gray-600 font-semibold tracking-wide"
+                >
+                  TOTAL PERCENTAGE(%)
                 </div>
                 <span class="font-bold text-2xl text-green-500"> 70% </span>
               </div>
@@ -117,13 +89,14 @@
         </div>
         <!-- END OF VIEW -->
         <div class="flex flex-wrap -mx-4">
-         <!-- ADMIN DATA -->
-          <AdminData/>
+          <!-- ADMIN DATA -->
+          <AdminData />
           <!--  -->
 
-
           <div class="w-full lg:w-1/2 px-4">
-            <div class="bg-gray-200 border-t border-b sm:rounded sm:border shadow">
+            <div
+              class="bg-gray-200 border-t border-b sm:rounded sm:border shadow"
+            >
               <div class="border-b">
                 <div class="flex justify-between px-6 -mb-px">
                   <h3 class="text-gray-600 py-4 font-normal text-lg">
@@ -135,13 +108,17 @@
                 <div class="text-center px-6 py-4">
                   <div class="py-8">
                     <div class="mb-4">
-                      <font-awesome-icon :icon="['fas', 'rocket']" class="text-6xl text-[#1796d5]"/>
+                      <font-awesome-icon
+                        :icon="['fas', 'rocket']"
+                        class="text-6xl text-[#1796d5]"
+                      />
                     </div>
                     <p class="text-2xl text-gray-600 font-medium mb-4">
                       No imported transaction!
                     </p>
                     <p class="text-grey max-w-xs mx-auto mb-6">
-                     Import all of your transactions before 24hrs to avaoid ovaloading of data.
+                      Import all of your transactions before 24hrs to avaoid
+                      ovaloading of data.
                       <br />
                       <span class="text-red-500 font-semibold">
                         Note: You can only import 1000 transactions at a time.
@@ -154,8 +131,6 @@
           </div>
         </div>
         <!--  -->
-
-        
       </div>
       <div class="bg-[#1796d5] border-t">
         <div class="container mx-auto px-4">
@@ -163,7 +138,11 @@
             <div
               class="text-center md:text-left py-3 md:py-4 border-b md:border-b-0"
             >
-              <RouterLink to="/darshboard1" class="no-underline text-gray-200 mr-4">Home</RouterLink>
+              <RouterLink
+                to="/darshboard1"
+                class="no-underline text-gray-200 mr-4"
+                >Home</RouterLink
+              >
               <a href="#" class="no-underline text-gray-200"
                 >Legal &amp; Privacy</a
               >
@@ -181,12 +160,19 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useUserStore } from "../../store/user";
 import MobileView from "../components/MobileView.vue";
 import AdminData from "../components/adminData.vue";
-import { useTransStore } from "../../store/transaction";    
-const {totalAmout, totalExpenses} = useTransStore();
+import { useTransStore } from "../../store/transaction";
+const { totalAmout, totalExpenses } = useTransStore();
 
 const { user } = useUserStore();
 
+const tab = ref([
+  { name: "Home", icon: "fa-solid fa-house" },
+  { name: "Income", icon: "fa-solid fa-chart-simple" },
+  { name: "Expenses", icon: "fa-solid fa-square-poll-horizontal" },
+  { name: "Settings", icon: "fa-solid fa-gear" },
+]);
 </script>

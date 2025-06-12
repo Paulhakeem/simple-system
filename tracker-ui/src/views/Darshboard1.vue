@@ -5,45 +5,18 @@
       <div
         class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500"
       >
-        <div class="relative z-2">
+        <div  v-for="(icon, index) in icons" :key="index" class="relative z-2">
           <a
             class="flex items-center justify-center flex-shrink-0 w-full h-16"
             href="#"
           >
             <font-awesome-icon
-              :icon="['fas', 'business-time']"
+              :icon="icon.icon"
+              @click="$router.push(icon.route)"
               class="text-xl text-gray-300"
             />
           </a>
         </div>
-        <a
-          class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-          href="#"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'house']"
-            class="text-xl text-[#1796d5]"
-          />
-        </a>
-        <!-- add category -->
-        <a
-          class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-          href="#"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'circle-plus']"
-            class="text-xl text-[#1796d5]"
-          />
-        </a>
-        <a
-          class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800 relative"
-          href="#"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'square-poll-vertical']"
-            class="text-xl text-[#1796d5]"
-          />
-        </a>
         <!-- user profile -->
         <RouterLink to="/user-dashboard"
           class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-auto rounded hover:bg-gray-800"
@@ -112,7 +85,7 @@ const icons = ref([
   {
     icon: "fa-solid fa-house",
     label: "Home",
-    route: "/home"
+    route: "/darshboard1"
   },
   {
     icon: "fa-solid fa-circle-plus",
